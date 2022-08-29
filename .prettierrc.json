@@ -1,0 +1,19 @@
+{
+  "printWidth": 80,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "endOfLine": "crlf",
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*tsx"
+      ],
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}

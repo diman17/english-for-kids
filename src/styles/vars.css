@@ -1,0 +1,7 @@
+:root {
+  /* colors */
+  --gradient-train: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+
+  /* breakpoints */
+  --xl: 1440px;
+}

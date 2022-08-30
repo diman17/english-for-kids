@@ -1,0 +1,55 @@
+@import "../../styles/vars.css";
+
+.switch {
+  position: relative;
+  display: block;
+  width: 75px;
+  height: 35px;
+  background: var(--gradient-train);
+  border-radius: 190px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.text {
+  position: absolute;
+  right: 8px;
+  top: 12px;
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  transition: 0.3s;
+}
+
+.checkbox:checked + .circle {
+  transform: translateX(38px);
+}
+
+.checkbox:checked ~ .text {
+  transform: translateX(-28px);
+}

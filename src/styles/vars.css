@@ -1,6 +1,7 @@
 :root {
   /* colors */
   --gradient-train: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+  --hamburger: #c8c8c8;
 
   /* breakpoints */
   --xl: 1440px;

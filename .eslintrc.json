@@ -33,6 +33,7 @@
     }
   },
   "rules": {
+    "no-unused-vars": 1,
     "no-shadow": 0,
     "no-plusplus": 0,
     "default-param-last": 0,

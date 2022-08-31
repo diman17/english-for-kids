@@ -2,11 +2,15 @@
   /* colors */
   --gradient-train: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
   --hamburger: #c8c8c8;
-  --background-page: #fff;
+  --background-default: #fff;
 
   /* breakpoints */
   --xl: 1440px;
 
   /* transitions */
   --transition-navbar: left, 400ms linear;
+  --transition-hover: left, 200ms ease;
+
+  /* shadows */
+  --shadow: 0 4px 4px rgb(0 0 0 / 25%);
 }

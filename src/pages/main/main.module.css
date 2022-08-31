@@ -3,7 +3,7 @@
 .page {
   max-width: var(--xl);
   margin: 0 auto;
-  background-color: var(--background-page);
+  background-color: var(--background-default);
   overflow: hidden;
 }
 
@@ -12,6 +12,7 @@
   top: 0;
   left: -190px;
   display: flex;
+  height: 100vh;
   transition: var(--transition-navbar);
 }
 

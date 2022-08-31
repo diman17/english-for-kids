@@ -21,7 +21,7 @@ function Main() {
         <Navbar categories={categories} />
         <div className={styles.wrapper}>
           <Header />
-          <GameField />
+          <GameField categories={categories} />
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <Hamburger />
+      <h1 className={styles.title}>English for Kids</h1>
       <Switch />
     </header>
   );

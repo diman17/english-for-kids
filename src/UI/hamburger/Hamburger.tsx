@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideNavbar, showNavbar } from '../../store/actions';
+import { hideNavbar, showNavbar } from '../../store/slice';
 import { State } from '../../types/store';
 import styles from './hamburger.module.css';
 

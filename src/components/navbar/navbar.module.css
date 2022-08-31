@@ -11,3 +11,35 @@
 .navbar-shown {
   left: 0;
 }
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 20px;
+  list-style-type: none;
+}
+
+.item:last-of-type {
+  margin-bottom: 0;
+}
+
+.link {
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.link:active {
+  opacity: 0.6;
+}

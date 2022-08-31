@@ -5,6 +5,7 @@ import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import { State } from '../../types/store';
 import styles from './main.module.css';
+import { categories } from '../../mocks/mocks';
 
 function Main() {
   const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
@@ -17,7 +18,7 @@ function Main() {
             : styles.inner
         }
       >
-        <Navbar />
+        <Navbar categories={categories} />
         <div className={styles.wrapper}>
           <Header />
           <GameField />

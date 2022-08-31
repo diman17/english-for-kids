@@ -1,15 +1,12 @@
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Categories, Category } from '../../types/main';
+import { Link } from 'react-router-dom';
+import { categories } from '../../mocks/mocks';
+import { Category } from '../../types/main';
 import { State } from '../../types/store';
 import styles from './navbar.module.css';
 
-type NavbarProps = {
-  categories: Categories;
-};
-
-function Navbar(props: NavbarProps) {
-  const { categories } = props;
+function Navbar() {
   const ref = useRef<HTMLElement>(null);
   const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
 
@@ -23,11 +20,16 @@ function Navbar(props: NavbarProps) {
       ref={ref}
     >
       <ul className={styles.list}>
+        <li className={styles.item}>
+          <Link to="/" className={styles.link}>
+            categories
+          </Link>
+        </li>
         {categories.map((category: Category) => (
           <li key={category.id} className={styles.item}>
-            <a className={styles.link} href="#">
+            <Link to={`/${category.name}`} className={styles.link}>
               {category.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

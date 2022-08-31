@@ -22,6 +22,21 @@
   list-style-type: none;
 }
 
+.item:first-of-type {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.item:first-of-type::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--background-default);
+}
+
 .item:last-of-type {
   margin-bottom: 0;
 }

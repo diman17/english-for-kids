@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import GameField from '../../components/game-field/GameField';
+import { Outlet } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
 import { State } from '../../types/store';
 import styles from './main.module.css';
-import { categories } from '../../mocks/mocks';
 
 function Main() {
   const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
@@ -18,10 +17,12 @@ function Main() {
             : styles.inner
         }
       >
-        <Navbar categories={categories} />
+        <Navbar />
         <div className={styles.wrapper}>
           <Header />
-          <GameField categories={categories} />
+          <main className={styles.main}>
+            <Outlet />
+          </main>
         </div>
       </div>
     </div>

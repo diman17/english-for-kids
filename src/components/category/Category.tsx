@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Category as CategoryType } from '../../types/main';
 import styles from './category.module.css';
 
@@ -10,12 +11,12 @@ function Category(props: CategoryProps) {
   const { category } = props;
   const { name, previewImage } = category;
   return (
-    <a className={styles.category} href="#">
+    <Link to={`/${category.name}`} className={styles.category}>
       <div className={styles.wrapper}>
         <img className={styles.image} src={previewImage} alt="category" />
       </div>
       <p className={styles.text}>{name}</p>
-    </a>
+    </Link>
   );
 }
 

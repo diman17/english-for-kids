@@ -16,6 +16,10 @@
   transition: var(--transition-navbar);
 }
 
+.main {
+  margin-bottom: 60px;
+}
+
 .wrapper {
   flex-grow: 1;
   padding: 0 25px;

@@ -75,6 +75,7 @@ module.exports = {
     },
     hot: true,
     compress: true,
+    historyApiFallback: true,
     host: 'local-ipv4',
     port: 8080,
   },

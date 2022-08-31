@@ -1,12 +1,25 @@
 @import "../../styles/vars.css";
 
 .page {
-  width: var(--xl);
+  max-width: var(--xl);
   margin: 0 auto;
   background-color: #fff;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  top: 0;
+  left: -190px;
+  display: flex;
+  transition: left, 400ms linear;
 }
 
 .wrapper {
-  width: 1005px;
-  margin: 0 auto;
+  flex-grow: 1;
+  padding: 0 25px;
+}
+
+.navbar-shown {
+  left: 0;
 }

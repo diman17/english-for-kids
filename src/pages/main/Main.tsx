@@ -1,12 +1,27 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import GameField from '../../components/game-field/GameField';
 import Header from '../../components/header/Header';
+import Navbar from '../../components/navbar/Navbar';
+import { State } from '../../types/store';
 import styles from './main.module.css';
 
 function Main() {
+  const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
   return (
     <div className={styles.page}>
-      <div className={styles.wrapper}>
-        <Header />
+      <div
+        className={
+          isNavbarShown
+            ? `${styles.inner} ${styles['navbar-shown']}`
+            : styles.inner
+        }
+      >
+        <Navbar />
+        <div className={styles.wrapper}>
+          <Header />
+          <GameField />
+        </div>
       </div>
     </div>
   );

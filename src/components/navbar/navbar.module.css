@@ -1,0 +1,13 @@
+.navbar {
+  position: relative;
+  top: 0;
+  left: -185px;
+  width: 375px;
+  padding: 60px;
+  background: var(--gradient-train);
+  transition: left 400ms linear;
+}
+
+.navbar-shown {
+  left: 0;
+}

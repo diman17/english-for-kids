@@ -1,22 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { State } from "../types/store";
+import { createSlice } from '@reduxjs/toolkit';
+import { State } from '../types/store';
 
 const initialState: State = {
   isNavbarShown: false,
 };
 
 const slice = createSlice({
-  name: "slice",
+  name: 'slice',
   initialState,
   reducers: {
     showNavbar(state: State) {
-      state.isNavbarShown = true
+      state.isNavbarShown = true;
     },
     hideNavbar(state: State) {
-      state.isNavbarShown = false
-    }
-  }
-})
+      state.isNavbarShown = false;
+    },
+  },
+});
 
-export const { showNavbar, hideNavbar } = slice.actions
-export default slice.reducer
+export const { showNavbar, hideNavbar } = slice.actions;
+export default slice.reducer;

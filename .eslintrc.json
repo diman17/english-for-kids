@@ -37,6 +37,7 @@
     "no-plusplus": 0,
     "default-param-last": 0,
     "no-unused-vars": 0,
+    "no-param-reassign": 0,
     "@typescript-eslint/no-unused-vars": 1,
     "react/jsx-filename-extension": [
       2,
@@ -51,6 +52,7 @@
       {
         "tsx": "never"
       }
-    ]
+    ],
+    "jsx-a11y/anchor-is-valid": 0
   }
 }

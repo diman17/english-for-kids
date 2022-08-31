@@ -2,7 +2,11 @@
   /* colors */
   --gradient-train: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
   --hamburger: #c8c8c8;
+  --background-page: #fff;
 
   /* breakpoints */
   --xl: 1440px;
+
+  /*transitions*/
+  --transition-navbar: left, 400ms linear;
 }

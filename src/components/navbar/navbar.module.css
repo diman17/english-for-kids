@@ -5,7 +5,7 @@
   width: 375px;
   padding: 60px;
   background: var(--gradient-train);
-  transition: left 400ms linear;
+  transition: var(--transition-navbar);
 }
 
 .navbar-shown {

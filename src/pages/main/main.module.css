@@ -3,7 +3,7 @@
 .page {
   max-width: var(--xl);
   margin: 0 auto;
-  background-color: #fff;
+  background-color: var(--background-page);
   overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
   top: 0;
   left: -190px;
   display: flex;
-  transition: left, 400ms linear;
+  transition: var(--transition-navbar);
 }
 
 .wrapper {

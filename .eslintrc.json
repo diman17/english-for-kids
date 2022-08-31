@@ -33,10 +33,11 @@
     }
   },
   "rules": {
-    "no-unused-vars": 1,
     "no-shadow": 0,
     "no-plusplus": 0,
     "default-param-last": 0,
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": 1,
     "react/jsx-filename-extension": [
       2,
       {

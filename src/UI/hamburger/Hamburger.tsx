@@ -1,23 +1,27 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { hideNavbar, showNavbar } from '../../store/actions';
+import { State } from '../../types/store';
 import styles from './hamburger.module.css';
 
 function Hamburger() {
-  const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
+  const isNavBarShown = useSelector((state: State) => state.isNavbarShown);
   const ref = useRef<HTMLButtonElement>(null);
 
   const handleButton = () => {
-    if (ref.current?.classList.contains(styles['is-active'])) {
-      setIsActive(false);
+    if (ref.current?.classList.contains(styles['navbar-shown'])) {
+      dispatch(hideNavbar());
     } else {
-      setIsActive(true);
+      dispatch(showNavbar());
     }
   };
 
   return (
     <button
       className={
-        isActive
-          ? `${styles.hamburger} ${styles['is-active']}`
+        isNavBarShown
+          ? `${styles.hamburger} ${styles['navbar-shown']}`
           : styles.hamburger
       }
       ref={ref}

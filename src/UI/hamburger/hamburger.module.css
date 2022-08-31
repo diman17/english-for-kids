@@ -1,5 +1,3 @@
-@import "../../styles/vars.css";
-
 .hamburger {
   background: transparent;
   border: none;
@@ -18,14 +16,14 @@
   transition: all 0.3s ease-in-out;
 }
 
-.hamburger.is-active .line:nth-child(2) {
+.hamburger.navbar-shown .line:nth-child(2) {
   opacity: 0;
 }
 
-.hamburger.is-active .line:nth-child(1) {
+.hamburger.navbar-shown .line:nth-child(1) {
   transform: translateY(13px) rotate(45deg);
 }
 
-.hamburger.is-active .line:nth-child(3) {
+.hamburger.navbar-shown .line:nth-child(3) {
   transform: translateY(-13px) rotate(-45deg);
 }

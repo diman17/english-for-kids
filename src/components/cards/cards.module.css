@@ -1,0 +1,7 @@
+.list {
+  composes: list from "../categories/categories.module.css";
+}
+
+.item {
+  composes: item from "../categories/categories.module.css";
+}

@@ -12,7 +12,7 @@
   top: 0;
   left: -190px;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   transition: var(--transition-navbar);
 }
 

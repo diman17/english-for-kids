@@ -11,7 +11,7 @@ function Category(props: CategoryProps) {
   const { category } = props;
   const { name, previewImage } = category;
   return (
-    <Link to={`/${category.name}`} className={styles.category}>
+    <Link to={`/${name}`} className={styles.category}>
       <div className={styles.wrapper}>
         <img className={styles.image} src={previewImage} alt="category" />
       </div>

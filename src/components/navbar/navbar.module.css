@@ -2,6 +2,7 @@
   position: relative;
   top: 0;
   left: -185px;
+  flex-shrink: 0;
   width: 375px;
   padding: 60px;
   background: var(--gradient-train);

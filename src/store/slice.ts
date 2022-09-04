@@ -4,6 +4,7 @@ import { State } from '../types/store';
 
 const initialState: State = {
   isNavbarShown: false,
+  isPlayMode: false,
   categories: [],
 };
 
@@ -20,8 +21,20 @@ const slice = createSlice({
     setCategories(state: State, action: PayloadAction<Categories>) {
       state.categories = action.payload;
     },
+    enablePlayMode(state: State) {
+      state.isPlayMode = true;
+    },
+    disablePlayMode(state: State) {
+      state.isPlayMode = false;
+    },
   },
 });
 
-export const { showNavbar, hideNavbar, setCategories } = slice.actions;
+export const {
+  showNavbar,
+  hideNavbar,
+  setCategories,
+  enablePlayMode,
+  disablePlayMode,
+} = slice.actions;
 export default slice.reducer;

@@ -1,6 +1,7 @@
 :root {
   /* colors */
   --gradient-train: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
+  --gradient-play: linear-gradient(40deg, #ffd86f, #fc6262);
   --hamburger: #c8c8c8;
   --background-default: #fff;
 
@@ -9,7 +10,7 @@
 
   /* transitions */
   --transition-navbar: left, 400ms linear;
-  --transition-hover: left, 200ms ease;
+  --transition-hover: all, 200ms ease;
 
   /* shadows */
   --shadow: 0 4px 4px rgb(0 0 0 / 25%);

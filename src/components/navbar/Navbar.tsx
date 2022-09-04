@@ -9,13 +9,16 @@ function Navbar() {
   const categories = useSelector((state: State) => state.categories);
   const ref = useRef<HTMLElement>(null);
   const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
+  const isPlayMode = useSelector((state: State) => state.isPlayMode);
 
   return (
     <nav
       className={
         isNavbarShown
-          ? `${styles.navbar} ${styles['navbar-shown']}`
-          : styles.navbar
+          ? `${
+              isPlayMode ? `${styles.navbar} ${styles.play}` : styles.navbar
+            } ${styles['navbar-shown']}`
+          : `${isPlayMode ? `${styles.navbar} ${styles.play}` : styles.navbar}`
       }
       ref={ref}
     >

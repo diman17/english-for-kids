@@ -6,6 +6,11 @@
   background: var(--gradient-train);
   border-radius: 190px;
   cursor: pointer;
+  transition: all 1000ms linear;
+}
+
+.play {
+  background: var(--gradient-play);
 }
 
 .checkbox {

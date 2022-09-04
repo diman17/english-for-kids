@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Card as CardType } from '../../types/main';
 import styles from './card.module.css';
 import rotateIcon from '../../assets/icons/rotate.svg';
+import { State } from '../../types/store';
 
 type CardProps = {
   card: CardType;
@@ -16,12 +18,17 @@ function Card(props: CardProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const rotateImageRef = useRef<HTMLImageElement>(null);
 
+  const isPlayMode = useSelector((state: State) => state.isPlayMode);
+
   useEffect(() => {
     const flip = () => cardRef.current?.classList.add(`${styles.flip}`);
     const flipBack = () => cardRef.current?.classList.remove(`${styles.flip}`);
     const play = (event: Event) => {
       const target = event.target as HTMLElement;
-      if (!target.classList.contains(`${styles['rotate-image']}`))
+      if (
+        !target.classList.contains(`${styles['rotate-image']}`) &&
+        !isPlayMode
+      )
         audioRef.current?.play();
     };
 
@@ -33,10 +40,13 @@ function Card(props: CardProps) {
       cardRef.current?.removeEventListener('mouseleave', flipBack);
       cardFrontRef.current?.removeEventListener('click', play);
     };
-  }, []);
+  }, [isPlayMode]);
 
   return (
-    <div className={styles.card} ref={cardRef}>
+    <div
+      className={isPlayMode ? `${styles.card} ${styles.play}` : styles.card}
+      ref={cardRef}
+    >
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.back}>

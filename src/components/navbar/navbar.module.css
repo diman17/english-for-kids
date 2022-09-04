@@ -9,6 +9,10 @@
   transition: var(--transition-navbar);
 }
 
+.play {
+  background: var(--gradient-play);
+}
+
 .navbar-shown {
   left: 0;
 }

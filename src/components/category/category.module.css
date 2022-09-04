@@ -21,6 +21,10 @@
   background: var(--gradient-train);
 }
 
+.play::before {
+  background: var(--gradient-play);
+}
+
 .category:hover {
   opacity: 0.8;
 }

@@ -9,11 +9,11 @@ type CategoryProps = {
 
 function Category(props: CategoryProps) {
   const { category } = props;
-  const { name, previewImage } = category;
+  const { id, name, previewImage } = category;
   return (
-    <Link to={`/${name}`} className={styles.category}>
+    <Link to={`/cards/${id}`} className={styles.category}>
       <div className={styles.wrapper}>
-        <img className={styles.image} src={previewImage} alt="category" />
+        <img className={styles.image} src={previewImage} alt={category.name} />
       </div>
       <p className={styles.text}>{name}</p>
     </Link>

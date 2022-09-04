@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000/api';
+const URL = 'http://localhost:3000/api/categories';
 
 type CategoryFromDataBase = {
   category_id: number;
@@ -13,7 +13,7 @@ const adapter = (data: CategoryFromDataBase) => ({
 });
 
 const getCategories = async () => {
-  const response = await fetch(`${URL}/categories`);
+  const response = await fetch(`${URL}`);
   const categories = await response.json();
   return categories.map((category: CategoryFromDataBase) => adapter(category));
 };

@@ -4,7 +4,7 @@ import { Category as CategoryType } from '../../types/main';
 import { State } from '../../types/store';
 import Category from '../category/Category';
 import styles from './categories.module.css';
-import getCategories from '../../api/categoties/categories';
+import getCategories from '../../api/categories';
 import { setCategories } from '../../store/slice';
 
 function Categories() {

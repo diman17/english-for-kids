@@ -27,7 +27,7 @@ function Navbar() {
         </li>
         {categories?.map((category: Category) => (
           <li key={category.id} className={styles.item}>
-            <Link to={`/${category.name}`} className={styles.link}>
+            <Link to={`/cards/${category.id}`} className={styles.link}>
               {category.name}
             </Link>
           </li>

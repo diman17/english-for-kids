@@ -1,5 +1,5 @@
 export type Category = {
-  id: string;
+  id: number;
   name: string;
   previewImage: string;
 };
@@ -7,12 +7,12 @@ export type Category = {
 export type Categories = Category[];
 
 export type Card = {
-  id: string;
+  id: number;
   image: string;
   audio: string;
   text: string;
   translate: string;
-  category: string;
+  categoryId: number;
 };
 
 export type Cards = Card[];

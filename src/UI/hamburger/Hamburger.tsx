@@ -1,12 +1,14 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideNavbar, showNavbar } from '../../store/slice';
-import { State } from '../../types/store';
+import { hideNavbar, showNavbar } from '../../store/slices/common';
+import { RootState } from '../../store/store';
 import styles from './hamburger.module.css';
 
 function Hamburger() {
   const dispatch = useDispatch();
-  const isNavBarShown = useSelector((state: State) => state.isNavbarShown);
+  const isNavBarShown = useSelector(
+    (state: RootState) => state.common.isNavbarShown,
+  );
   const ref = useRef<HTMLButtonElement>(null);
 
   const handleButton = () => {

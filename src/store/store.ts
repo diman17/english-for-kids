@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reducer from './slice';
+import commonReducer from './slices/common';
+import gameReducer from './slices/game';
 
 const store = configureStore({
-  reducer,
+  reducer: {
+    common: commonReducer,
+    game: gameReducer,
+  },
 });
 
+export type RootState = ReturnType<typeof store.getState>;
 export default store;

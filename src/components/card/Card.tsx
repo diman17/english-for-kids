@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Card as CardType } from '../../types/main';
+import { Card as CardType } from '../../types/common';
 import styles from './card.module.css';
 import rotateIcon from '../../assets/icons/rotate.svg';
-import { State } from '../../types/store';
+import { RootState } from '../../store/store';
 
 type CardProps = {
   card: CardType;
@@ -18,7 +18,7 @@ function Card(props: CardProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const rotateImageRef = useRef<HTMLImageElement>(null);
 
-  const isPlayMode = useSelector((state: State) => state.isPlayMode);
+  const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
 
   useEffect(() => {
     const flip = () => cardRef.current?.classList.add(`${styles.flip}`);

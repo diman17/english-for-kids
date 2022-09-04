@@ -1,7 +1,11 @@
-import { Categories } from './main';
+import { Categories } from './common';
 
-export type State = {
+export type CommonState = {
   isNavbarShown: boolean;
   isPlayMode: boolean;
   categories: Categories | [];
+};
+
+export type GameState = {
+  isGameStart: boolean;
 };

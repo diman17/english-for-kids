@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { enablePlayMode, disablePlayMode } from '../../store/slice';
-import { State } from '../../types/store';
+import { enablePlayMode, disablePlayMode } from '../../store/slices/common';
+import { RootState } from '../../store/store';
 import styles from './switch.module.css';
 
 function Switch() {
   const [isChecked, setIsChecked] = useState(false);
-  const isPlayMode = useSelector((state: State) => state.isPlayMode);
+  const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
   const dispatch = useDispatch();
   const ref = useRef<HTMLInputElement>(null);
 

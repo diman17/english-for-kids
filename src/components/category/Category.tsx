@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Category as CategoryType } from '../../types/main';
-import { State } from '../../types/store';
+import { RootState } from '../../store/store';
+import { Category as CategoryType } from '../../types/common';
 import styles from './category.module.css';
 
 type CategoryProps = {
@@ -12,7 +12,7 @@ type CategoryProps = {
 function Category(props: CategoryProps) {
   const { category } = props;
   const { id, name, previewImage } = category;
-  const isPlayMode = useSelector((state: State) => state.isPlayMode);
+  const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
 
   return (
     <Link

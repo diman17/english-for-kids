@@ -4,12 +4,14 @@ import { Outlet } from 'react-router-dom';
 import getCategories from '../../api/categories';
 import Header from '../../components/header/Header';
 import Navbar from '../../components/navbar/Navbar';
-import { setCategories } from '../../store/slice';
-import { State } from '../../types/store';
+import { setCategories } from '../../store/slices/common';
+import { RootState } from '../../store/store';
 import styles from './main.module.css';
 
 function Main() {
-  const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
+  const isNavbarShown = useSelector(
+    (state: RootState) => state.common.isNavbarShown,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {

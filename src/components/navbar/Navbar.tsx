@@ -1,15 +1,17 @@
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Category } from '../../types/main';
-import { State } from '../../types/store';
+import { RootState } from '../../store/store';
+import { Category } from '../../types/common';
 import styles from './navbar.module.css';
 
 function Navbar() {
-  const categories = useSelector((state: State) => state.categories);
+  const categories = useSelector((state: RootState) => state.common.categories);
   const ref = useRef<HTMLElement>(null);
-  const isNavbarShown = useSelector((state: State) => state.isNavbarShown);
-  const isPlayMode = useSelector((state: State) => state.isPlayMode);
+  const isNavbarShown = useSelector(
+    (state: RootState) => state.common.isNavbarShown,
+  );
+  const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
 
   return (
     <nav

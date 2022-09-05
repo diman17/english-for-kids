@@ -67,6 +67,13 @@ module.exports = {
           filename: 'assets/fonts/[contenthash][ext][query]'
         }
       },
+      {
+        test: /\.mp3$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/audio/[contenthash][ext][query]'
+        }
+      },
     ],
   },
 

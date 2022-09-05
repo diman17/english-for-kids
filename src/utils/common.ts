@@ -9,9 +9,9 @@ export const shuffle = <T>(arr: T[]) => {
   return array;
 };
 
-export const playAudio = (audioPath: string, delay: number) => {
+export const playAudio = (audioPath: string, delay: number = 200) => {
   setTimeout(() => {
-    const audio = new Audio(`data:audio/mp3;base64,${audioPath}`);
+    const audio = new Audio(audioPath);
     audio.play();
   }, delay);
 };

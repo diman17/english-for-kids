@@ -9,7 +9,7 @@ import { playAudio } from '../../../utils/common';
 function GameButton() {
   const dispatch = useDispatch();
   const isGameStart = useSelector((state: RootState) => state.game.isGameStart);
-  const currentCardsIndex = useSelector(
+  const currentCardIndex = useSelector(
     (state: RootState) => state.game.currentCardIndex,
   );
   const currentCards = useSelector(
@@ -17,14 +17,13 @@ function GameButton() {
   );
 
   const handleButton = () => {
-    const audioDelay = 300;
-
     if (!isGameStart) {
       dispatch(startGame());
-      playAudio(currentCards[currentCardsIndex].audio, audioDelay);
+      playAudio(
+        `data:audio/mp3;base64,${currentCards[currentCardIndex].audio}`,
+      );
     }
-
-    playAudio(currentCards[currentCardsIndex].audio, audioDelay);
+    playAudio(`data:audio/mp3;base64,${currentCards[currentCardIndex].audio}`);
   };
 
   return (

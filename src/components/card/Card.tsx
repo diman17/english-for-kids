@@ -1,9 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Card as CardType } from '../../types/common';
 import styles from './card.module.css';
 import rotateIcon from '../../assets/icons/rotate.svg';
 import { RootState } from '../../store/store';
+import correctAudio from '../../assets/audio/correct.mp3';
+import errorAudio from '../../assets/audio/error.mp3';
+import { playAudio } from '../../utils/common';
+import { finishGame, increaseCurrentCard } from '../../store/slices/game';
 
 type CardProps = {
   card: CardType;
@@ -19,6 +23,14 @@ function Card(props: CardProps) {
   const rotateImageRef = useRef<HTMLImageElement>(null);
 
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
+  const isGameStart = useSelector((state: RootState) => state.game.isGameStart);
+  const currentCards = useSelector(
+    (state: RootState) => state.game.currentCards,
+  );
+  const currentCardIndex = useSelector(
+    (state: RootState) => state.game.currentCardIndex,
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const flip = () => cardRef.current?.classList.add(`${styles.flip}`);
@@ -29,18 +41,35 @@ function Card(props: CardProps) {
         !target.classList.contains(`${styles['rotate-image']}`) &&
         !isPlayMode
       )
-        audioRef.current?.play();
+        playAudio(audioRef.current?.src as string);
+
+      if (isGameStart) {
+        const currentGameCard = currentCards[currentCardIndex];
+
+        if (currentGameCard.id === card.id) {
+          playAudio(correctAudio, 100);
+          dispatch(increaseCurrentCard());
+          cardRef.current?.classList.add(`${styles.correct}`);
+        } else {
+          playAudio(errorAudio, 100);
+        }
+
+        if (currentCards.length === currentCardIndex + 1) {
+          dispatch(finishGame());
+        }
+      }
     };
 
     rotateImageRef.current?.addEventListener('click', flip);
     cardRef.current?.addEventListener('mouseleave', flipBack);
     cardFrontRef.current?.addEventListener('click', play);
+
     return () => {
       rotateImageRef.current?.removeEventListener('click', flip);
       cardRef.current?.removeEventListener('mouseleave', flipBack);
       cardFrontRef.current?.removeEventListener('click', play);
     };
-  }, [isPlayMode]);
+  }, [isPlayMode, isGameStart, currentCardIndex]);
 
   return (
     <div

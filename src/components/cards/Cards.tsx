@@ -6,7 +6,7 @@ import { setCurrentCards } from '../../store/slices/game';
 import { RootState } from '../../store/store';
 import { Card as CardType, Cards as CardsType } from '../../types/common';
 import GameButton from '../../UI/buttons/game-button/GameButton';
-import { shuffle } from '../../utils/common';
+import { playAudio, shuffle } from '../../utils/common';
 import Card from '../card/Card';
 import styles from './cards.module.css';
 
@@ -16,6 +16,12 @@ function Cards() {
   const categoryId = params.categoryId as string;
   const [cards, setCards] = useState<CardsType>([]);
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
+  const currentCardIndex = useSelector(
+    (state: RootState) => state.game.currentCardIndex,
+  );
+  const currentCards = useSelector(
+    (state: RootState) => state.game.currentCards,
+  );
 
   useEffect(() => {
     getCardsByCategoryId(Number(categoryId)).then((cards: CardsType) => {
@@ -23,6 +29,15 @@ function Cards() {
       dispatch(setCurrentCards(shuffle(cards)));
     });
   }, [categoryId, isPlayMode]);
+
+  useEffect(() => {
+    if (currentCardIndex !== 0) {
+      playAudio(
+        `data:audio/mp3;base64,${currentCards[currentCardIndex].audio}`,
+        800,
+      );
+    }
+  }, [currentCardIndex]);
 
   return (
     <>

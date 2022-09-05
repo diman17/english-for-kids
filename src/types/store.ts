@@ -1,4 +1,4 @@
-import { Categories } from './common';
+import { Cards, Categories } from './common';
 
 export type CommonState = {
   isNavbarShown: boolean;
@@ -8,4 +8,6 @@ export type CommonState = {
 
 export type GameState = {
   isGameStart: boolean;
+  currentCards: Cards | [];
+  currentCardIndex: number;
 };

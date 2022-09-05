@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { enablePlayMode, disablePlayMode } from '../../store/slices/common';
+import { finishGame } from '../../store/slices/game';
 import { RootState } from '../../store/store';
 import styles from './switch.module.css';
 
@@ -19,6 +20,7 @@ function Switch() {
       dispatch(enablePlayMode());
     } else {
       dispatch(disablePlayMode());
+      dispatch(finishGame());
     }
   }, [isChecked]);
 

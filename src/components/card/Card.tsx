@@ -7,7 +7,11 @@ import { RootState } from '../../store/store';
 import correctAudio from '../../assets/audio/correct.mp3';
 import errorAudio from '../../assets/audio/error.mp3';
 import { playAudio } from '../../utils/common';
-import { finishGame, increaseCurrentCard } from '../../store/slices/game';
+import {
+  finishGame,
+  increaseCurrentCard,
+  setStar,
+} from '../../store/slices/game';
 
 type CardProps = {
   card: CardType;
@@ -49,9 +53,11 @@ function Card(props: CardProps) {
         if (currentGameCard.id === card.id) {
           playAudio(correctAudio, 100);
           dispatch(increaseCurrentCard());
+          dispatch(setStar(true));
           cardRef.current?.classList.add(`${styles.correct}`);
         } else {
           playAudio(errorAudio, 100);
+          dispatch(setStar(false));
         }
 
         if (currentCards.length === currentCardIndex + 1) {

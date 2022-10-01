@@ -6,6 +6,7 @@ const initialState: GameState = {
   isGameStart: false,
   currentCards: [],
   currentCardIndex: 0,
+  stars: [],
 };
 
 const gameSlice = createSlice({
@@ -18,6 +19,7 @@ const gameSlice = createSlice({
     finishGame(state: GameState) {
       state.isGameStart = false;
       state.currentCardIndex = 0;
+      state.stars = [];
     },
     setCurrentCards(state: GameState, action: PayloadAction<Cards>) {
       state.currentCards = action.payload;
@@ -25,9 +27,17 @@ const gameSlice = createSlice({
     increaseCurrentCard(state: GameState) {
       state.currentCardIndex += 1;
     },
+    setStar(state: GameState, action: PayloadAction<boolean>) {
+      state.stars.push(action.payload);
+    },
   },
 });
 
-export const { startGame, finishGame, setCurrentCards, increaseCurrentCard } =
-  gameSlice.actions;
+export const {
+  startGame,
+  finishGame,
+  setCurrentCards,
+  increaseCurrentCard,
+  setStar,
+} = gameSlice.actions;
 export default gameSlice.reducer;

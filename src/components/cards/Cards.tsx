@@ -8,6 +8,7 @@ import { Card as CardType, Cards as CardsType } from '../../types/common';
 import GameButton from '../../UI/buttons/game-button/GameButton';
 import { playAudio, shuffle } from '../../utils/common';
 import Card from '../card/Card';
+import Stars from '../stars/Stars';
 import styles from './cards.module.css';
 
 function Cards() {
@@ -41,6 +42,7 @@ function Cards() {
 
   return (
     <>
+      {isPlayMode ? <Stars /> : ''}
       <ul className={styles.list}>
         {cards?.map((card: CardType) => (
           <li key={card.id} className={styles.item}>

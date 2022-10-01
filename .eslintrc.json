@@ -3,6 +3,9 @@
     "browser": true,
     "es2021": true
   },
+  "globals": {
+    "JSX": true
+},
   "extends": [
     "plugin:react/recommended",
     "airbnb",
@@ -54,6 +57,7 @@
       }
     ],
     "jsx-a11y/anchor-is-valid": 0,
-    "jsx-a11y/media-has-caption": 0
+    "jsx-a11y/media-has-caption": 0,
+    "react/button-has-type": 0
   }
 }

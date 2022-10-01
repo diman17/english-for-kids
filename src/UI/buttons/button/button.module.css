@@ -1,0 +1,29 @@
+.button {
+  padding: 0;
+  font-weight: 500;
+  color: white;
+  border: none;
+  border: 2px solid white;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.button-login {
+  width: 100%;
+  height: 60px;
+  margin-top: auto;
+  padding: 15px;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: left;
+}
+
+.button-login:hover {
+  opacity: 0.8;
+}
+
+.button-login:active {
+  opacity: 0.6;
+}

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../store/store';
 import { Category } from '../../types/common';
+import Button from '../../UI/buttons/button/Button';
 import styles from './navbar.module.css';
 
 function Navbar() {
@@ -38,6 +39,9 @@ function Navbar() {
           </li>
         ))}
       </ul>
+      <Button shape="login" type="button">
+        <p style={{ margin: '0' }}>Log in</p>
+      </Button>
     </nav>
   );
 }

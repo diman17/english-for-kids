@@ -10,6 +10,10 @@ import { playAudio } from '../../utils/common';
 import {
   finishGame,
   increaseCurrentCard,
+  increaseMistakes,
+  resetCurrentCard,
+  resetStars,
+  setIsResultScreenShown,
   setStar,
 } from '../../store/slices/game';
 
@@ -58,10 +62,16 @@ function Card(props: CardProps) {
         } else {
           playAudio(errorAudio, 100);
           dispatch(setStar(false));
+          dispatch(increaseMistakes());
         }
 
         if (currentCards.length === currentCardIndex + 1) {
-          dispatch(finishGame());
+          dispatch(resetCurrentCard());
+          setTimeout(() => {
+            dispatch(setIsResultScreenShown(true));
+            dispatch(finishGame());
+            dispatch(resetStars());
+          }, 1500);
         }
       }
     };

@@ -7,6 +7,8 @@ const initialState: GameState = {
   currentCards: [],
   currentCardIndex: 0,
   stars: [],
+  mistakes: 0,
+  isResultScreenShown: false,
 };
 
 const gameSlice = createSlice({
@@ -18,8 +20,6 @@ const gameSlice = createSlice({
     },
     finishGame(state: GameState) {
       state.isGameStart = false;
-      state.currentCardIndex = 0;
-      state.stars = [];
     },
     setCurrentCards(state: GameState, action: PayloadAction<Cards>) {
       state.currentCards = action.payload;
@@ -27,8 +27,20 @@ const gameSlice = createSlice({
     increaseCurrentCard(state: GameState) {
       state.currentCardIndex += 1;
     },
+    resetCurrentCard(state: GameState) {
+      state.currentCardIndex = 0;
+    },
     setStar(state: GameState, action: PayloadAction<boolean>) {
       state.stars.push(action.payload);
+    },
+    resetStars(state: GameState) {
+      state.stars = [];
+    },
+    increaseMistakes(state: GameState) {
+      state.mistakes += 1;
+    },
+    setIsResultScreenShown(state: GameState, action: PayloadAction<boolean>) {
+      state.isResultScreenShown = action.payload;
     },
   },
 });
@@ -37,7 +49,11 @@ export const {
   startGame,
   finishGame,
   setCurrentCards,
+  resetCurrentCard,
   increaseCurrentCard,
   setStar,
+  resetStars,
+  increaseMistakes,
+  setIsResultScreenShown,
 } = gameSlice.actions;
 export default gameSlice.reducer;

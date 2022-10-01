@@ -11,4 +11,6 @@ export type GameState = {
   currentCards: Cards | [];
   currentCardIndex: number;
   stars: boolean[];
+  mistakes: number;
+  isResultScreenShown: boolean;
 };

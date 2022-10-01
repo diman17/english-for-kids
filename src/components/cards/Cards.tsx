@@ -8,6 +8,7 @@ import { Card as CardType, Cards as CardsType } from '../../types/common';
 import GameButton from '../../UI/buttons/game-button/GameButton';
 import { playAudio, shuffle } from '../../utils/common';
 import Card from '../card/Card';
+import ResultScreen from '../result-screen/ResultScreen';
 import Stars from '../stars/Stars';
 import styles from './cards.module.css';
 
@@ -22,6 +23,9 @@ function Cards() {
   );
   const currentCards = useSelector(
     (state: RootState) => state.game.currentCards,
+  );
+  const isResultScreenShown = useSelector(
+    (state: RootState) => state.game.isResultScreenShown,
   );
 
   useEffect(() => {
@@ -39,6 +43,10 @@ function Cards() {
       );
     }
   }, [currentCardIndex]);
+
+  if (isResultScreenShown) {
+    return <ResultScreen />;
+  }
 
   return (
     <>

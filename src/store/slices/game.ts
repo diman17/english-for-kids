@@ -39,6 +39,9 @@ const gameSlice = createSlice({
     increaseMistakes(state: GameState) {
       state.mistakes += 1;
     },
+    resetMistakes(state: GameState) {
+      state.mistakes = 0;
+    },
     setIsResultScreenShown(state: GameState, action: PayloadAction<boolean>) {
       state.isResultScreenShown = action.payload;
     },
@@ -54,6 +57,7 @@ export const {
   setStar,
   resetStars,
   increaseMistakes,
+  resetMistakes,
   setIsResultScreenShown,
 } = gameSlice.actions;
 export default gameSlice.reducer;

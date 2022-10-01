@@ -4,6 +4,7 @@ import { enablePlayMode, disablePlayMode } from '../../store/slices/common';
 import {
   finishGame,
   resetCurrentCard,
+  resetMistakes,
   resetStars,
 } from '../../store/slices/game';
 import { RootState } from '../../store/store';
@@ -27,6 +28,7 @@ function Switch() {
       dispatch(finishGame());
       dispatch(resetCurrentCard());
       dispatch(resetStars());
+      dispatch(resetMistakes());
     }
   }, [isChecked]);
 

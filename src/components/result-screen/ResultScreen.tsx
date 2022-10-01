@@ -7,7 +7,7 @@ import styles from './result-screen.module.css';
 import successAudio from '../../assets/audio/success.mp3';
 import failureAudio from '../../assets/audio/failure.mp3';
 import { playAudio } from '../../utils/common';
-import { setIsResultScreenShown } from '../../store/slices/game';
+import { resetMistakes, setIsResultScreenShown } from '../../store/slices/game';
 
 import { RootState } from '../../store/store';
 
@@ -20,6 +20,7 @@ function ResultScreen() {
     setTimeout(() => {
       navigate('/');
       dispatch(setIsResultScreenShown(false));
+      dispatch(resetMistakes());
     }, 3500);
   }, []);
 

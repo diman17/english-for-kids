@@ -15,3 +15,5 @@ export const playAudio = (audioPath: string, delay: number = 200) => {
     audio.play();
   }, delay);
 };
+
+export const getRandomKey = () => Date.now() + Math.random();

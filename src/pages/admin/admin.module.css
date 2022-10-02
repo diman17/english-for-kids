@@ -1,3 +1,5 @@
+@import "../../styles/vars.css";
+
 .page {
   width: var(--xl);
   margin: 0 auto;

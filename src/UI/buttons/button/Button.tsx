@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './button.module.css';
 
 type ButtonProps = {
-  shape: 'login' | 'cancel' | 'submit';
+  shape: 'login' | 'cancel' | 'submit' | 'logout';
   type: 'button' | 'submit' | 'reset';
   handleClick: () => void;
   children: JSX.Element;

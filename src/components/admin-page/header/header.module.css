@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 30px 60px;
+  background: var(--gradient-train);
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  list-style-type: none;
+}
+
+.text {
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
+  color: white;
+}
+
+.button {
+  margin-left: auto;
+}

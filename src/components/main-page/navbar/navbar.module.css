@@ -48,7 +48,8 @@
   margin-bottom: 0;
 }
 
-.link {
+.link,
+.admin-link {
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: 22px;
@@ -57,6 +58,11 @@
   text-transform: capitalize;
   color: #fff;
   transition: var(--transition-hover);
+}
+
+.admin-link {
+  margin-top: auto;
+  text-transform: uppercase;
 }
 
 .link:hover {

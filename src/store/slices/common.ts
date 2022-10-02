@@ -11,6 +11,7 @@ const initialState: CommonState = {
     login: 'admin',
     password: 'admin',
   },
+  isAdminAuth: false,
 };
 
 const commonSlice = createSlice({
@@ -38,6 +39,12 @@ const commonSlice = createSlice({
     hideLoginModal(state: CommonState) {
       state.isLoginModalShown = false;
     },
+    logInAdmin(state: CommonState) {
+      state.isAdminAuth = true;
+    },
+    logOutAdmin(state: CommonState) {
+      state.isAdminAuth = false;
+    },
   },
 });
 
@@ -49,5 +56,7 @@ export const {
   disablePlayMode,
   showLoginModal,
   hideLoginModal,
+  logInAdmin,
+  logOutAdmin,
 } = commonSlice.actions;
 export default commonSlice.reducer;

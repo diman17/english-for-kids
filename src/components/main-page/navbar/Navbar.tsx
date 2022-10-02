@@ -14,6 +14,9 @@ function Navbar() {
     (state: RootState) => state.common.isNavbarShown,
   );
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
+  const isAdminAuth = useSelector(
+    (state: RootState) => state.common.isAdminAuth,
+  );
   const dispatch = useDispatch();
 
   const handleButtonClick = () => {
@@ -45,9 +48,15 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <Button handleClick={handleButtonClick} shape="login" type="button">
-        <p style={{ margin: '0' }}>Log in</p>
-      </Button>
+      {isAdminAuth ? (
+        <Link className={`${styles.link} ${styles['admin-link']}`} to="/admin">
+          Admin panel
+        </Link>
+      ) : (
+        <Button handleClick={handleButtonClick} shape="login" type="button">
+          <p style={{ margin: '0' }}>Log in</p>
+        </Button>
+      )}
     </nav>
   );
 }

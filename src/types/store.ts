@@ -9,6 +9,7 @@ export type CommonState = {
     login: string;
     password: string;
   };
+  isAdminAuth: boolean;
 };
 
 export type GameState = {

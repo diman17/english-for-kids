@@ -1,10 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logOutAdmin } from '../../../store/slices/common';
 import Button from '../../../UI/buttons/button/Button';
 import styles from './header.module.css';
 
 function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log('to main page');
+    dispatch(logOutAdmin());
+    navigate('/');
   };
 
   return (

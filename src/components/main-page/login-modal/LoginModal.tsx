@@ -1,5 +1,11 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  hideLoginModal,
+  hideNavbar,
+  logInAdmin,
+} from '../../../store/slices/common';
 import { RootState } from '../../../store/store';
 import Button from '../../../UI/buttons/button/Button';
 import styles from './login-modal.module.css';
@@ -7,6 +13,8 @@ import styles from './login-modal.module.css';
 function LoginModal() {
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
   const admin = useSelector((state: RootState) => state.common.admin);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [loginValue, setLoginValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
@@ -29,7 +37,10 @@ function LoginModal() {
       admin.login === loginValue.toLocaleLowerCase() &&
       admin.password === passwordValue.toLocaleLowerCase()
     ) {
-      console.log('to admin panel');
+      dispatch(logInAdmin());
+      navigate('/admin');
+      dispatch(hideLoginModal());
+      dispatch(hideNavbar());
     } else {
       alert(`
         login: 'admin'

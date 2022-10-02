@@ -7,6 +7,10 @@ const initialState: CommonState = {
   isPlayMode: false,
   categories: [],
   isLoginModalShown: false,
+  admin: {
+    login: 'admin',
+    password: 'admin',
+  },
 };
 
 const commonSlice = createSlice({

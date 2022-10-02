@@ -5,6 +5,10 @@ export type CommonState = {
   isPlayMode: boolean;
   categories: Categories | [];
   isLoginModalShown: boolean;
+  admin: {
+    login: string;
+    password: string;
+  };
 };
 
 export type GameState = {

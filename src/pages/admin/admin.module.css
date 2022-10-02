@@ -1,0 +1,6 @@
+.page {
+  width: var(--xl);
+  margin: 0 auto;
+  background-color: var(--background-default);
+  overflow: hidden;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { hideLoginModal } from '../../store/slices/common';
+import { hideLoginModal } from '../../../store/slices/common';
 import styles from './overlay.module.css';
 
 function Overlay() {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import correctStar from '../../assets/icons/star-win.svg';
-import wrongStar from '../../assets/icons/star.svg';
+import { RootState } from '../../../store/store';
+import correctStar from '../../../assets/icons/star-win.svg';
+import wrongStar from '../../../assets/icons/star.svg';
 import styles from './stars.module.css';
-import { getRandomKey } from '../../utils/common';
+import { getRandomKey } from '../../../utils/common';
 
 function Stars() {
   const stars = useSelector((state: RootState) => state.game.stars);

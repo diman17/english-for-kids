@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { Category as CategoryType } from '../../types/common';
+import { RootState } from '../../../store/store';
+import { Category as CategoryType } from '../../../types/common';
 import Category from '../category/Category';
 import styles from './categories.module.css';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Categories from './components/categories/Categories';
+import Categories from './components/main-page/categories/Categories';
 import Main from './pages/main/Main';
-import Cards from './components/cards/Cards';
+import Cards from './components/main-page/cards/Cards';
 
 function App() {
   return (

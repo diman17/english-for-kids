@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import Button from '../../UI/buttons/button/Button';
+import { RootState } from '../../../store/store';
+import Button from '../../../UI/buttons/button/Button';
 import styles from './login-modal.module.css';
 
 function LoginModal() {

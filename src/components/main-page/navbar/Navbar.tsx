@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showLoginModal } from '../../store/slices/common';
-import { RootState } from '../../store/store';
-import { Category } from '../../types/common';
-import Button from '../../UI/buttons/button/Button';
+import { showLoginModal } from '../../../store/slices/common';
+import { RootState } from '../../../store/store';
+import { Category } from '../../../types/common';
+import Button from '../../../UI/buttons/button/Button';
 import styles from './navbar.module.css';
 
 function Navbar() {

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card as CardType } from '../../types/common';
+import { Card as CardType } from '../../../types/common';
 import styles from './card.module.css';
-import rotateIcon from '../../assets/icons/rotate.svg';
-import { RootState } from '../../store/store';
-import correctAudio from '../../assets/audio/correct.mp3';
-import errorAudio from '../../assets/audio/error.mp3';
-import { playAudio } from '../../utils/common';
+import rotateIcon from '../../../assets/icons/rotate.svg';
+import { RootState } from '../../../store/store';
+import correctAudio from '../../../assets/audio/correct.mp3';
+import errorAudio from '../../../assets/audio/error.mp3';
+import { playAudio } from '../../../utils/common';
 import {
   finishGame,
   increaseCurrentCard,
@@ -15,7 +15,7 @@ import {
   resetStars,
   setIsResultScreenShown,
   setStar,
-} from '../../store/slices/game';
+} from '../../../store/slices/game';
 
 type CardProps = {
   card: CardType;

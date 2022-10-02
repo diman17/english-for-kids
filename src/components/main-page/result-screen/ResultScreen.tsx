@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import successImage from '../../assets/images/success.jpg';
-import failureImage from '../../assets/images/failure.jpg';
+import successImage from '../../../assets/images/success.jpg';
+import failureImage from '../../../assets/images/failure.jpg';
 import styles from './result-screen.module.css';
-import successAudio from '../../assets/audio/success.mp3';
-import failureAudio from '../../assets/audio/failure.mp3';
-import { playAudio } from '../../utils/common';
-import { resetMistakes, setIsResultScreenShown } from '../../store/slices/game';
+import successAudio from '../../../assets/audio/success.mp3';
+import failureAudio from '../../../assets/audio/failure.mp3';
+import { playAudio } from '../../../utils/common';
+import {
+  resetMistakes,
+  setIsResultScreenShown,
+} from '../../../store/slices/game';
 
-import { RootState } from '../../store/store';
+import { RootState } from '../../../store/store';
 
 function ResultScreen() {
   const mistakes = useSelector((state: RootState) => state.game.mistakes);

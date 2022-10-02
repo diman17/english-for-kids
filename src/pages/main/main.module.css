@@ -1,9 +1,13 @@
 @import "../../styles/vars.css";
 
 .page {
-  max-width: var(--xl);
+  width: var(--xl);
   margin: 0 auto;
   background-color: var(--background-default);
+  overflow: hidden;
+}
+
+.noscroll {
   overflow: hidden;
 }
 

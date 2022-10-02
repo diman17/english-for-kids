@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { showLoginModal } from '../../store/slices/common';
 import { RootState } from '../../store/store';
 import { Category } from '../../types/common';
 import Button from '../../UI/buttons/button/Button';
@@ -13,6 +14,11 @@ function Navbar() {
     (state: RootState) => state.common.isNavbarShown,
   );
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
+  const dispatch = useDispatch();
+
+  const handleButtonClick = () => {
+    dispatch(showLoginModal());
+  };
 
   return (
     <nav
@@ -39,7 +45,7 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <Button shape="login" type="button">
+      <Button handleClick={handleButtonClick} shape="login" type="button">
         <p style={{ margin: '0' }}>Log in</p>
       </Button>
     </nav>

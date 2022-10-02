@@ -20,10 +20,24 @@
   text-align: left;
 }
 
-.button-login:hover {
+.button-cancel,
+.button-submit {
+  width: 40%;
+  height: 50px;
+}
+
+.button-cancel {
+  background-color: #e53935;
+}
+
+.button-login:hover,
+.button-cancel:hover,
+.button-submit:hover {
   opacity: 0.8;
 }
 
-.button-login:active {
+.button-login:active,
+.button-cancel:active,
+.button-submit:active {
   opacity: 0.6;
 }

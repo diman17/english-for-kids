@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
 import getCategories from '../../api/categories';
 import Header from '../../components/header/Header';
+import LoginModal from '../../components/login-modal/LoginModal';
 import Navbar from '../../components/navbar/Navbar';
+import Overlay from '../../components/overlay/Overlay';
 import { setCategories } from '../../store/slices/common';
 import { finishGame } from '../../store/slices/game';
 import { RootState } from '../../store/store';
@@ -13,6 +15,9 @@ function Main() {
   const location = useLocation();
   const isNavbarShown = useSelector(
     (state: RootState) => state.common.isNavbarShown,
+  );
+  const isLoginModalShown = useSelector(
+    (state: RootState) => state.common.isLoginModalShown,
   );
   const dispatch = useDispatch();
 
@@ -25,23 +30,33 @@ function Main() {
   }, []);
 
   return (
-    <div className={styles.page}>
-      <div
-        className={
-          isNavbarShown
-            ? `${styles.inner} ${styles['navbar-shown']}`
-            : styles.inner
-        }
-      >
-        <Navbar />
-        <div className={styles.wrapper}>
-          <Header />
-          <main className={styles.main}>
-            <Outlet />
-          </main>
+    <>
+      <div className={styles.page}>
+        <div
+          className={
+            isNavbarShown
+              ? `${styles.inner} ${styles['navbar-shown']}`
+              : styles.inner
+          }
+        >
+          <Navbar />
+          <div className={styles.wrapper}>
+            <Header />
+            <main className={styles.main}>
+              <Outlet />
+            </main>
+          </div>
         </div>
       </div>
-    </div>
+      {isLoginModalShown ? (
+        <>
+          <LoginModal />
+          <Overlay />
+        </>
+      ) : (
+        ''
+      )}
+    </>
   );
 }
 

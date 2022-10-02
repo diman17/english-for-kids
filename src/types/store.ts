@@ -4,6 +4,7 @@ export type CommonState = {
   isNavbarShown: boolean;
   isPlayMode: boolean;
   categories: Categories | [];
+  isLoginModalShown: boolean;
 };
 
 export type GameState = {

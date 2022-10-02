@@ -6,6 +6,7 @@ const initialState: CommonState = {
   isNavbarShown: false,
   isPlayMode: false,
   categories: [],
+  isLoginModalShown: false,
 };
 
 const commonSlice = createSlice({
@@ -27,6 +28,12 @@ const commonSlice = createSlice({
     disablePlayMode(state: CommonState) {
       state.isPlayMode = false;
     },
+    showLoginModal(state: CommonState) {
+      state.isLoginModalShown = true;
+    },
+    hideLoginModal(state: CommonState) {
+      state.isLoginModalShown = false;
+    },
   },
 });
 
@@ -36,5 +43,7 @@ export const {
   setCategories,
   enablePlayMode,
   disablePlayMode,
+  showLoginModal,
+  hideLoginModal,
 } = commonSlice.actions;
 export default commonSlice.reducer;

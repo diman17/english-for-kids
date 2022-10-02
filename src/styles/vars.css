@@ -4,6 +4,7 @@
   --gradient-play: linear-gradient(40deg, #ffd86f, #fc6262);
   --hamburger: #c8c8c8;
   --background-default: #fff;
+  --form: #3f51b5;
 
   /* breakpoints */
   --xl: 1440px;

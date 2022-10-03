@@ -3,6 +3,7 @@
 .page {
   width: var(--xl);
   margin: 0 auto;
+  min-height: 100vh;
   background-color: var(--background-default);
   overflow: hidden;
 }

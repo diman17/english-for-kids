@@ -37,9 +37,19 @@
   border: none;
 }
 
+.button-admin {
+  width: 40%;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--admin);
+  border-color: var(--admin);
+}
+
 .button-login:hover,
 .button-cancel:hover,
 .button-logout:hover,
+.button-admin:hover,
 .button-submit:hover {
   opacity: 0.8;
 }
@@ -47,6 +57,7 @@
 .button-login:active,
 .button-cancel:active,
 .button-logout:active,
+.button-admin:active,
 .button-submit:active {
   opacity: 0.6;
 }

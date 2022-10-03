@@ -18,10 +18,14 @@ const adapter = (data: CardFromDataBase) => ({
   categoryId: data.category_id,
 });
 
-const getCardsByCategoryId = async (categoryId: number) => {
+export const getCardsByCategoryId = async (categoryId: number) => {
   const response = await fetch(`${URL}/${categoryId}`);
   const cards = await response.json();
   return cards.map((card: CardFromDataBase) => adapter(card));
 };
 
-export default getCardsByCategoryId;
+export const getCountCardsByCategoryId = async (categoryId: number) => {
+  const response = await fetch(`${URL}/${categoryId}/count`);
+  const count = await response.json();
+  return count;
+};

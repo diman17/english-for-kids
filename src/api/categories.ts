@@ -12,10 +12,21 @@ const adapter = (data: CategoryFromDataBase) => ({
   previewImage: data.preview_image,
 });
 
-const getCategories = async () => {
+export const getCategories = async () => {
   const response = await fetch(`${URL}`);
   const categories = await response.json();
   return categories.map((category: CategoryFromDataBase) => adapter(category));
 };
 
-export default getCategories;
+export const updateCategoryName = async (id: number, name: String) => {
+  await fetch(`${URL}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+      name,
+    }),
+  });
+};

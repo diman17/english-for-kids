@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
-import getCategories from '../../api/categories';
+import { getCategories } from '../../api/categories';
 import Header from '../../components/main-page/header/Header';
 import LoginModal from '../../components/main-page/login-modal/LoginModal';
 import Navbar from '../../components/main-page/navbar/Navbar';

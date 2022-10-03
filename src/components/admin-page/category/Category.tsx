@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getCountCardsByCategoryId } from '../../../api/cards';
 import { Category as CategoryType } from '../../../types/common';
 import Button from '../../../UI/buttons/button/Button';
@@ -16,6 +17,7 @@ function Category(props: CategoryProps) {
   const [count, setCount] = useState('');
   const [isRename, setIsRename] = useState(false);
   const [categoryName, setCategoryName] = useState(name);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCountCardsByCategoryId(id).then((count) => setCount(count));
@@ -30,7 +32,7 @@ function Category(props: CategoryProps) {
   };
 
   const handleAddWordButtonClick = () => {
-    console.log('add word');
+    navigate(`cards/${id}`);
   };
 
   const handleCancelButtonClick = () => {

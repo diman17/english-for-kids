@@ -1,0 +1,61 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 10px;
+}
+
+.label > button {
+  width: 100%;
+}
+
+.label-text {
+  margin-bottom: 10px;
+  color: var(--form);
+}
+
+.input {
+  width: 100%;
+  font-size: 18px;
+  line-height: 20px;
+  border: none;
+  border-bottom: 2px solid var(--form);
+}
+
+.input[type="file"] {
+  display: none;
+}
+
+.buttons {
+  margin-top: 55px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  height: auto;
+  width: 40%;
+}
+
+.btn {
+  padding: 0;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--admin);
+  border: none;
+  border: 2px solid var(--admin);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:active {
+  opacity: 0.6;
+}

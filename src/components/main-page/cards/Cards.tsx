@@ -37,10 +37,7 @@ function Cards() {
 
   useEffect(() => {
     if (currentCardIndex !== 0) {
-      playAudio(
-        `data:audio/mp3;base64,${currentCards[currentCardIndex].audio}`,
-        800,
-      );
+      playAudio(currentCards[currentCardIndex].audio, 800);
     }
   }, [currentCardIndex]);
 

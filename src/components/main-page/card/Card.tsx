@@ -95,21 +95,13 @@ function Card(props: CardProps) {
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.back}>
-            <img
-              className={styles.image}
-              src={`data:image/jpeg;base64,${image}`}
-              alt={card.translate}
-            />
+            <img className={styles.image} src={image} alt={card.translate} />
             <p className={styles.text}>{translate}</p>
           </div>
           <div className={styles.front} ref={cardFrontRef}>
-            <img
-              className={styles.image}
-              src={`data:image/jpeg;base64,${image}`}
-              alt={card.text}
-            />
+            <img className={styles.image} src={image} alt={card.text} />
             <p className={styles.text}>{text}</p>
-            <audio src={`data:audio/mp3;base64,${audio}`} ref={audioRef} />
+            <audio src={audio} ref={audioRef} />
             <img
               className={styles['rotate-image']}
               src={rotateIcon}

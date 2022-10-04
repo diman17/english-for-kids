@@ -19,11 +19,9 @@ function GameButton() {
   const handleButton = () => {
     if (!isGameStart) {
       dispatch(startGame());
-      playAudio(
-        `data:audio/mp3;base64,${currentCards[currentCardIndex].audio}`,
-      );
+      playAudio(currentCards[currentCardIndex].audio);
     }
-    playAudio(`data:audio/mp3;base64,${currentCards[currentCardIndex].audio}`);
+    playAudio(currentCards[currentCardIndex].audio);
   };
 
   return (

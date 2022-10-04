@@ -4,6 +4,7 @@ type CardFromDataBase = {
   card_id: number;
   image: string;
   audio: string;
+  audio_name: string;
   text: string;
   translate: string;
   category_id: string;
@@ -13,6 +14,7 @@ const adapter = (data: CardFromDataBase) => ({
   id: data.card_id,
   image: data.image,
   audio: data.audio,
+  audioName: data.audio_name,
   text: data.text,
   translate: data.translate,
   categoryId: data.category_id,
@@ -28,4 +30,28 @@ export const getCountCardsByCategoryId = async (categoryId: number) => {
   const response = await fetch(`${URL}/${categoryId}/count`);
   const count = await response.json();
   return count;
+};
+
+export const updateCard = async (
+  id: number,
+  image: string,
+  audio: string,
+  audioName: string,
+  text: string,
+  translate: string,
+) => {
+  await fetch(`${URL}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'Application/json',
+    },
+    body: JSON.stringify({
+      id,
+      image,
+      audio,
+      audioName,
+      text,
+      translate,
+    }),
+  });
 };

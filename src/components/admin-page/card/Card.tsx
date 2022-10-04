@@ -3,6 +3,7 @@ import { Card as CardType } from '../../../types/common';
 import Button from '../../../UI/buttons/button/Button';
 import styles from './card.module.css';
 import closeIcon from '../../../assets/icons/close.png';
+import { updateCard } from '../../../api/cards';
 
 type CardProps = {
   card: CardType;
@@ -10,12 +11,15 @@ type CardProps = {
 
 function Card(props: CardProps) {
   const { card } = props;
-  const { image, text, translate } = card;
+  const { id, image, audio, audioName, text, translate } = card;
   const [isChange, setIsChange] = useState(false);
   const [name, setName] = useState(text);
   const [cardTranslation, setCardTranslation] = useState(translate);
   const [soundFile, setSoundFile] = useState<File | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [cardSound, setCardSound] = useState(audio);
+  const [cardSoundName, setCardSoundName] = useState(audioName);
+  const [cardImage, setCardImage] = useState(image);
 
   const handleButtonClick = () => {
     setIsChange(true);
@@ -35,12 +39,21 @@ function Card(props: CardProps) {
     event: ChangeEvent<HTMLInputElement>,
   ) => {
     setSoundFile(event.target.files![0]);
+    setCardSoundName(event.target.files![0].name);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files![0]);
+    reader.onload = () => setCardSound(reader.result as string);
   };
 
   const handleSelectImageFileChange = (
     event: ChangeEvent<HTMLInputElement>,
   ) => {
     setImageFile(event.target.files![0]);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files![0]);
+    reader.onload = () => setCardImage(reader.result as string);
   };
 
   const handleCancelButtonClick = () => {
@@ -49,10 +62,13 @@ function Card(props: CardProps) {
     setCardTranslation(translate);
     setSoundFile(null);
     setImageFile(null);
+    setCardImage(image);
+    setCardSoundName(audioName);
   };
 
   const handleOkButtonClick = () => {
-    console.log('ok');
+    setIsChange(false);
+    updateCard(id, cardImage, cardSound, cardSoundName, name, cardTranslation);
   };
 
   return (
@@ -136,17 +152,17 @@ function Card(props: CardProps) {
             />
           </button>
           <p className={styles.text}>
-            Word: <span>{text}</span>
+            Word: <span>{name}</span>
           </p>
           <p className={styles.text}>
-            Translation: <span>{translate}</span>
+            Translation: <span>{cardTranslation}</span>
           </p>
           <p className={styles.text}>
-            Sound file: <span>soundName</span>
+            Sound file: <span>{cardSoundName}</span>
           </p>
           <figure className={styles.image}>
             <figcaption className={styles.text}>Image: </figcaption>
-            <img src={`data:image/jpeg;base64,${image}`} alt="card" />
+            <img src={cardImage} alt="card" />
           </figure>
           <Button handleClick={handleButtonClick} shape="admin" type="reset">
             <p style={{ margin: '0' }}>Change</p>

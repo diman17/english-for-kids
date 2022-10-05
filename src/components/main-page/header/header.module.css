@@ -2,14 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  min-height: 100px;
 }
 
 .title {
-  margin: 0;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 42px;
-  line-height: 72px;
-  text-shadow: 2px 2px 2px rgb(150 150 150 / 100%);
+  font-size: 3.5rem;
+  letter-spacing: 7px;
+  word-spacing: 5px;
+  color: var(--primary-train);
+  text-shadow: -1px -1px 0 var(--secondary-train),
+    -2px -2px 0 var(--secondary-train), -3px -3px 0 var(--secondary-train),
+    -4px -4px 0 var(--secondary-train), -5px -5px 0 var(--secondary-train),
+    -30px 20px 40px dimgrey;
+}
+
+.play {
+  color: var(--primary-play);
+  text-shadow: -1px -1px 0 var(--secondary-play),
+    -2px -2px 0 var(--secondary-play), -3px -3px 0 var(--secondary-play),
+    -4px -4px 0 var(--secondary-play), -5px -5px 0 var(--secondary-play),
+    -30px 20px 40px dimgrey;
 }

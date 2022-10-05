@@ -1,11 +1,25 @@
 :root {
   /* colors */
-  --gradient-train: linear-gradient(180deg, #0099ae 0%, #00bf82 100%);
-  --gradient-play: linear-gradient(40deg, #ffd86f, #fc6262);
+  --primary-train: #00bf82;
+  --secondary-train: #0099ae;
+  --primary-play: #fc6262;
+  --secondary-play: #ffd86f;
   --hamburger: #c8c8c8;
   --background-default: #fff;
   --form: #3f51b5;
   --admin: #00bf82;
+
+  /* gradients */
+  --gradient-train: linear-gradient(
+    180deg,
+    var(--secondary-train),
+    var(--primary-train)
+  );
+  --gradient-play: linear-gradient(
+    40deg,
+    var(--secondary-play),
+    var(--primary-play)
+  );
 
   /* breakpoints */
   --sm: 576px;

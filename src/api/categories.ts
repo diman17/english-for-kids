@@ -18,7 +18,19 @@ export const getCategories = async () => {
   return categories.map((category: CategoryFromDataBase) => adapter(category));
 };
 
-export const updateCategoryName = async (id: number, name: String) => {
+export const createCategory = async (name: string) => {
+  await fetch(`${URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+    }),
+  });
+};
+
+export const updateCategoryName = async (id: number, name: string) => {
   await fetch(`${URL}`, {
     method: 'PUT',
     headers: {

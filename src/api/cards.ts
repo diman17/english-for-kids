@@ -26,10 +26,10 @@ export const getCardsByCategoryId = async (categoryId: number) => {
   return cards.map((card: CardFromDataBase) => adapter(card));
 };
 
-export const getCountCardsByCategoryId = async (categoryId: number) => {
-  const response = await fetch(`${URL}/${categoryId}/count`);
-  const count = await response.json();
-  return count;
+export const getAllCards = async () => {
+  const response = await fetch(`${URL}`);
+  const cards = await response.json();
+  return cards.map((card: CardFromDataBase) => adapter(card));
 };
 
 export const updateCard = async (

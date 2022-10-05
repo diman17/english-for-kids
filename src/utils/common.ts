@@ -1,3 +1,5 @@
+import { Card, Cards } from '../types/common';
+
 export const shuffle = <T>(arr: T[]) => {
   const array = [...arr];
   if (array) {
@@ -17,3 +19,6 @@ export const playAudio = (audioPath: string, delay: number = 200) => {
 };
 
 export const getRandomKey = () => Date.now() + Math.random();
+
+export const getCountCardsByCategoryId = (cards: Cards, id: number) =>
+  cards.filter((card: Card) => card.categoryId === id).length;

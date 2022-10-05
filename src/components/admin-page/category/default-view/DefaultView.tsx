@@ -8,11 +8,12 @@ type DefaultViewProps = {
   setIsRename: (arg: boolean) => void;
   categoryId: number;
   categoryName: string;
-  count: string;
+  count: number | null;
 };
 
 function DefaultView(props: DefaultViewProps) {
   const { setIsRename, categoryId, categoryName, count } = props;
+
   const navigate = useNavigate();
 
   const handleRenameButtonClick = () => {

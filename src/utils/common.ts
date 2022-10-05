@@ -21,8 +21,6 @@ export const playAudio = (audioPath: string, delay: number = 200) => {
   }, delay);
 };
 
-export const getRandomKey = () => Date.now() + Math.random();
-
 export const getCountCardsByCategoryId = (cards: Cards, id: number) =>
   cards.filter((card: Card) => card.categoryId === id).length;
 

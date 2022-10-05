@@ -1,7 +1,6 @@
 .card {
   position: relative;
-  width: 317px;
-  height: 210px;
+  min-height: var(--card-height);
   cursor: pointer;
 }
 

@@ -8,8 +8,8 @@
 
 .button {
   position: absolute;
-  bottom: -80px;
-  right: 0;
+  top: 0;
+  left: 0;
   width: 60px;
   height: 60px;
   font-size: 1rem;

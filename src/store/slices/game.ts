@@ -31,7 +31,7 @@ const gameSlice = createSlice({
       state.currentCardIndex = 0;
     },
     setStar(state: GameState, action: PayloadAction<boolean>) {
-      state.stars.push(action.payload);
+      state.stars.unshift(action.payload);
     },
     resetStars(state: GameState) {
       state.stars = [];

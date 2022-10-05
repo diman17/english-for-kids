@@ -4,14 +4,13 @@ import { RootState } from '../../../store/store';
 import correctStar from '../../../assets/icons/star-win.svg';
 import wrongStar from '../../../assets/icons/star.svg';
 import styles from './stars.module.css';
-import { getRandomKey } from '../../../utils/common';
 
 function Stars() {
   const stars = useSelector((state: RootState) => state.game.stars);
 
   return (
     <div className={styles.stars}>
-      {stars.map((star) => {
+      {stars.map((star, i) => {
         if (star) {
           return (
             <img
@@ -19,18 +18,12 @@ function Stars() {
               alt="correct"
               width="30"
               height="30"
-              key={getRandomKey()}
+              key={i}
             />
           );
         }
         return (
-          <img
-            src={wrongStar}
-            alt="wrong"
-            width="30"
-            height="30"
-            key={getRandomKey()}
-          />
+          <img src={wrongStar} alt="wrong" width="30" height="30" key={i} />
         );
       })}
     </div>

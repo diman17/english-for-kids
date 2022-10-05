@@ -1,8 +1,7 @@
 .category {
   position: relative;
   display: block;
-  width: 317px;
-  height: 230px;
+  min-height: var(--card-height);
   text-decoration: none;
   border-radius: 5px;
   box-shadow: var(--shadow);

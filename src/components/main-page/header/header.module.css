@@ -6,6 +6,7 @@
 }
 
 .title {
+  margin: 0;
   font-size: 3.5rem;
   letter-spacing: 7px;
   word-spacing: 5px;

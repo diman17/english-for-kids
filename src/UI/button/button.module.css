@@ -1,0 +1,58 @@
+.button {
+  padding: 0;
+  padding: 15px;
+  color: var(--font-light);
+  border: none;
+  border: 2px solid var(--font-light);
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.log {
+  width: 100%;
+  margin-top: auto;
+  text-align: left;
+}
+
+.cancel,
+.submit {
+  width: 45%;
+}
+
+.cancel {
+  border-color: var(--font-cancel);
+  box-shadow: 0 0 40px 40px var(--font-cancel) inset, 0 0 0 0 var(--font-cancel);
+}
+
+.admin {
+  width: 45%;
+  color: var(--admin);
+  border-color: var(--admin);
+}
+
+.cancel:hover {
+  color: var(--font-cancel);
+  box-shadow: 0 0 10px 0 var(--font-cancel) inset,
+    0 0 5px 1px var(--font-cancel);
+}
+
+.admin:hover {
+  box-shadow: 0 0 40px 40px var(--admin) inset, 0 0 5px 1px var(--admin);
+  color: var(--font-light);
+}
+
+.log:hover,
+.submit:hover {
+  box-shadow: 0 0 40px 40px var(--font-light) inset,
+    0 0 5px 1px var(--font-light);
+  color: var(--font-dark);
+}
+
+.log:active,
+.cancel:active,
+.admin:active,
+.submit:active {
+  opacity: 0.8;
+}

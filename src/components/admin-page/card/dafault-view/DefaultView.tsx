@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './default-view.module.css';
 import closeIcon from '../../../../assets/icons/close.png';
-import Button from '../../../../UI/buttons/button/Button';
+import Button from '../../../../UI/button/Button';
 import { deleteCard } from '../../../../api/cards';
 
 type DefaultViewProps = {

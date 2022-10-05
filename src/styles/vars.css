@@ -8,6 +8,9 @@
   --background-default: #fff;
   --form: #3f51b5;
   --admin: #00bf82;
+  --font-light: #fff;
+  --font-dark: #000;
+  --font-cancel: #e53935;
 
   /* gradients */
   --gradient-train: linear-gradient(
@@ -29,7 +32,7 @@
 
   /* transitions */
   --transition-navbar: left, 400ms linear;
-  --transition-hover: all 300ms ease-in-out;
+  --transition-hover: all 200ms ease-in-out;
 
   /* shadows */
   --shadow: 0 4px 4px rgb(0 0 0 / 25%);

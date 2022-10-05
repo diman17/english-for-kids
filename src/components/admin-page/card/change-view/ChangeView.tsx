@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { updateCard } from '../../../../api/cards';
 import { Card } from '../../../../types/common';
-import Button from '../../../../UI/buttons/button/Button';
+import Button from '../../../../UI/button/Button';
 import styles from './change-view.module.css';
 
 type ChangeTypeProps = {

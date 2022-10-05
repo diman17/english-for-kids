@@ -7,7 +7,7 @@ import {
   logInAdmin,
 } from '../../../store/slices/common';
 import { RootState } from '../../../store/store';
-import Button from '../../../UI/buttons/button/Button';
+import Button from '../../../UI/button/Button';
 import styles from './login-modal.module.css';
 
 function LoginModal() {

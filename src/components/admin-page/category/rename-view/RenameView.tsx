@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react';
 import { updateCategory } from '../../../../api/categories';
-import Button from '../../../../UI/buttons/button/Button';
+import Button from '../../../../UI/button/Button';
 import styles from './rename-view.module.css';
 
 type RenameViewProps = {

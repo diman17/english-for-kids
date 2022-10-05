@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './default-view.module.css';
 import closeIcon from '../../../../assets/icons/close.png';
-import Button from '../../../../UI/buttons/button/Button';
+import Button from '../../../../UI/button/Button';
 import { deleteCategory } from '../../../../api/categories';
 
 type DefaultViewProps = {

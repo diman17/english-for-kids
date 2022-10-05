@@ -2,22 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getCardsByCategoryId } from '../../../api/cards';
-import { setCurrentCards } from '../../../store/slices/game';
+import { setCurrentCards, startGame } from '../../../store/slices/game';
 import { RootState } from '../../../store/store';
 import { Card as CardType, Cards as CardsType } from '../../../types/common';
-import GameButton from '../../../UI/buttons/game-button/GameButton';
 import { playAudio, shuffle } from '../../../utils/common';
 import Card from '../card/Card';
 import ResultScreen from '../result-screen/ResultScreen';
 import Stars from '../stars/Stars';
 import styles from './cards.module.css';
+import repeatIcon from '../../../assets/icons/repeat.svg';
 
 function Cards() {
   const params = useParams();
-  const dispatch = useDispatch();
   const categoryId = params.categoryId as string;
+
   const [cards, setCards] = useState<CardsType>([]);
+
+  const dispatch = useDispatch();
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
+  const isGameStart = useSelector((state: RootState) => state.game.isGameStart);
   const currentCardIndex = useSelector(
     (state: RootState) => state.game.currentCardIndex,
   );
@@ -45,6 +48,14 @@ function Cards() {
     return <ResultScreen />;
   }
 
+  const handleButton = () => {
+    if (!isGameStart) {
+      dispatch(startGame());
+      playAudio(currentCards[currentCardIndex].audio);
+    }
+    playAudio(currentCards[currentCardIndex].audio);
+  };
+
   return (
     <>
       {isPlayMode ? <Stars /> : ''}
@@ -55,7 +66,13 @@ function Cards() {
           </li>
         ))}
       </ul>
-      {isPlayMode ? <GameButton /> : ''}
+      {isPlayMode ? (
+        <button onClick={handleButton} className={styles.button} type="button">
+          {isGameStart ? <img src={repeatIcon} alt="repeat" /> : 'play'}
+        </button>
+      ) : (
+        ''
+      )}
     </>
   );
 }

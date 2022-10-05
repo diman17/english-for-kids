@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { createCategory } from '../../../../api/categories';
-import Button from '../../../../UI/buttons/button/Button';
+import Button from '../../../../UI/button/Button';
 import styles from './create-view.module.css';
 
 type CreateViewProps = {

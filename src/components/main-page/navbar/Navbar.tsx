@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { showLoginModal } from '../../../store/slices/common';
 import { RootState } from '../../../store/store';
 import { Category } from '../../../types/common';
-import Button from '../../../UI/buttons/button/Button';
+import Button from '../../../UI/button/Button';
 import styles from './navbar.module.css';
 
 function Navbar() {
@@ -53,7 +53,7 @@ function Navbar() {
           Admin panel
         </Link>
       ) : (
-        <Button handleClick={handleButtonClick} shape="login" type="button">
+        <Button handleClick={handleButtonClick} shape="log" type="button">
           <p style={{ margin: '0' }}>Log in</p>
         </Button>
       )}

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOutAdmin } from '../../../store/slices/common';
-import Button from '../../../UI/buttons/button/Button';
+import Button from '../../../UI/button/Button';
 import styles from './header.module.css';
 
 function Header() {
@@ -25,7 +25,7 @@ function Header() {
         </li>
       </ul>
       <div className={styles.button}>
-        <Button handleClick={handleClick} shape="logout" type="button">
+        <Button handleClick={handleClick} shape="log" type="button">
           <p style={{ margin: '0' }}>Log out</p>
         </Button>
       </div>

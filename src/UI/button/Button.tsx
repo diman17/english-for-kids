@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './button.module.css';
 
 type ButtonProps = {
-  shape: 'login' | 'cancel' | 'submit' | 'logout' | 'admin';
+  shape: 'log' | 'cancel' | 'submit' | 'admin';
   type: 'button' | 'submit' | 'reset';
   handleClick: () => void;
   children: JSX.Element;
@@ -14,7 +14,7 @@ function Button(props: ButtonProps) {
   return (
     <button
       onClick={handleClick}
-      className={`${styles.button} ${styles[`button-${shape}`]}`}
+      className={`${styles.button} ${styles[`${shape}`]}`}
       type={type}
     >
       {children}

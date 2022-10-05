@@ -23,7 +23,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.buttons button {
-  height: auto;
-}

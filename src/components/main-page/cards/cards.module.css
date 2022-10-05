@@ -5,3 +5,36 @@
 .item {
   composes: item from "../categories/categories.module.css";
 }
+
+.button {
+  position: absolute;
+  bottom: -80px;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--font-light);
+  background: var(--gradient-play);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.button img {
+  transition: var(--transition-hover);
+}
+
+.button:hover {
+  box-shadow: 0 0 2px 2px rgb(252 98 98 / 40%);
+}
+
+.button:active {
+  transform: scale(0.8);
+}
+
+.button:active img {
+  transform: rotate(360deg);
+}

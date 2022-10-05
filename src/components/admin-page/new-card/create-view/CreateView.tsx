@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import { createCard } from '../../../../api/cards';
-import Button from '../../../../UI/buttons/button/Button';
+import Button from '../../../../UI/button/Button';
 import styles from './create-view.module.css';
 
 type CreateViewProps = {

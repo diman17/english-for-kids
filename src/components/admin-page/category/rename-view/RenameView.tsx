@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { updateCategoryName } from '../../../../api/categories';
+import { updateCategory } from '../../../../api/categories';
 import Button from '../../../../UI/buttons/button/Button';
 import styles from './rename-view.module.css';
 
@@ -25,7 +25,7 @@ function RenameView(props: RenameViewProps) {
   };
 
   const handleOkButtonClick = () => {
-    updateCategoryName(categoryId, categoryName);
+    updateCategory(categoryId, categoryName);
     setIsRename(false);
   };
 

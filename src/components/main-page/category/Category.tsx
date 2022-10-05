@@ -7,11 +7,12 @@ import styles from './category.module.css';
 
 type CategoryProps = {
   category: CategoryType;
+  image: string;
 };
 
 function Category(props: CategoryProps) {
-  const { category } = props;
-  const { id, name, previewImage } = category;
+  const { category, image } = props;
+  const { id, name } = category;
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
 
   return (
@@ -22,7 +23,7 @@ function Category(props: CategoryProps) {
       }
     >
       <div className={styles.wrapper}>
-        <img className={styles.image} src={previewImage} alt={category.name} />
+        <img className={styles.image} src={image} alt={category.name} />
       </div>
       <p className={styles.text}>{name}</p>
     </Link>

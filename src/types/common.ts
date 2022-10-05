@@ -1,7 +1,6 @@
 export type Category = {
   id: number;
   name: string;
-  previewImage: string;
 };
 
 export type Categories = Category[];

@@ -3,13 +3,11 @@ const URL = 'http://localhost:3000/api/categories';
 type CategoryFromDataBase = {
   category_id: number;
   name: string;
-  preview_image: string;
 };
 
 const adapter = (data: CategoryFromDataBase) => ({
   id: data.category_id,
   name: data.name,
-  previewImage: data.preview_image,
 });
 
 export const getCategories = async () => {
@@ -30,7 +28,7 @@ export const createCategory = async (name: string) => {
   });
 };
 
-export const updateCategoryName = async (id: number, name: string) => {
+export const updateCategory = async (id: number, name: string) => {
   await fetch(`${URL}`, {
     method: 'PUT',
     headers: {

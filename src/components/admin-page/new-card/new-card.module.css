@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  padding: 25px;
+  border-radius: 5px;
+  border: 3px solid grey;
+}
+
+.title {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.button {
+  padding: 0;
+  margin-top: 50%;
+  align-self: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

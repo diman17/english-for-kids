@@ -55,3 +55,27 @@ export const updateCard = async (
     }),
   });
 };
+
+export const createCard = async (
+  image: string,
+  audio: string,
+  audioName: string,
+  text: string,
+  translate: string,
+  categoryId: number,
+) => {
+  await fetch(`${URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'Application/json',
+    },
+    body: JSON.stringify({
+      image,
+      audio,
+      audioName,
+      text,
+      translate,
+      categoryId,
+    }),
+  });
+};

@@ -8,6 +8,10 @@ import ProtectedRoute from './hocs/ProtectedRoute';
 import AdminCategories from './components/admin-page/categories/Categories';
 import AdminCards from './components/admin-page/cards/Cards';
 
+import './styles/normalize.css';
+import './styles/vars.css';
+import './styles/base.css';
+
 function App() {
   return (
     <Routes>

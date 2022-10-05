@@ -23,7 +23,7 @@ function Cards() {
     <ul className={styles.list}>
       {cards?.map((card: CardType) => (
         <li key={card.id} className={styles.item}>
-          <Card card={card} />
+          <Card setRerender={setRerender} card={card} />
         </li>
       ))}
       <li className={styles.item}>

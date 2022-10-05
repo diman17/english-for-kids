@@ -79,3 +79,15 @@ export const createCard = async (
     }),
   });
 };
+
+export const deleteCard = async (id: number) => {
+  await fetch(`${URL}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+    }),
+  });
+};

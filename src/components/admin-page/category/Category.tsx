@@ -7,12 +7,13 @@ import DefaultView from './default-view/DefaultView';
 import RenameView from './rename-view/RenameView';
 
 type CategoryProps = {
+  setRerender: (arg: number) => void;
   category: CategoryType;
   cards: Cards;
 };
 
 function Category(props: CategoryProps) {
-  const { category, cards } = props;
+  const { setRerender, category, cards } = props;
   const { id, name } = category;
 
   const [isRename, setIsRename] = useState(false);
@@ -36,6 +37,7 @@ function Category(props: CategoryProps) {
       ) : (
         <DefaultView
           setIsRename={setIsRename}
+          setRerender={setRerender}
           categoryId={id}
           categoryName={categoryName}
           count={count}

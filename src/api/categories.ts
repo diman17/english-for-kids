@@ -40,3 +40,15 @@ export const updateCategory = async (id: number, name: string) => {
     }),
   });
 };
+
+export const deleteCategory = async (id: number) => {
+  await fetch(`${URL}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+    }),
+  });
+};

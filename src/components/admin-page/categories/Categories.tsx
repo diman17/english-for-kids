@@ -26,7 +26,11 @@ function Categories() {
     <ul className={styles.list}>
       {categories.map((category: CategoryType) => (
         <li className={styles.item} key={category.id}>
-          <Category category={category} cards={cards} />
+          <Category
+            setRerender={setRerender}
+            category={category}
+            cards={cards}
+          />
         </li>
       ))}
       <li className={styles.item}>

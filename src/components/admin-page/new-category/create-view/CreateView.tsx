@@ -24,7 +24,7 @@ function CreateView(props: CreateViewProps) {
 
   const handleOkButtonClick = () => {
     setIsCreate(false);
-    createCategory(categoryName).then(() => setRerender(Math.random()));
+    createCategory(categoryName).then(() => setRerender(Date.now()));
   };
 
   return (

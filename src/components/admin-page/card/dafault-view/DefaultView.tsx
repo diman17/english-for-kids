@@ -30,7 +30,7 @@ function DefaultView(props: DefaultViewProps) {
   };
 
   const handleDeleteButtonClick = () => {
-    deleteCard(id).then(() => setRerender(Math.random()));
+    deleteCard(id).then(() => setRerender(Date.now()));
   };
 
   return (

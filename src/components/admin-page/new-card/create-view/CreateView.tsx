@@ -70,7 +70,7 @@ function CreateView(props: CreateViewProps) {
       cardName,
       cardTranslation,
       categoryId,
-    ).then(() => setRerender(Math.random()));
+    ).then(() => setRerender(Date.now()));
   };
 
   return (

@@ -27,7 +27,7 @@ function DefaultView(props: DefaultViewProps) {
   };
 
   const handleDeleteButtonClick = () => {
-    deleteCategory(categoryId).then(() => setRerender(Math.random()));
+    deleteCategory(categoryId).then(() => setRerender(Date.now()));
   };
 
   return (

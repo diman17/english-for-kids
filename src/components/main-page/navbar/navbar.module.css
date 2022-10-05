@@ -40,7 +40,7 @@
   bottom: -30px;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: var(--background-default);
 }
 
@@ -50,14 +50,10 @@
 
 .link,
 .admin-link {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 26px;
+  position: relative;
   text-decoration: none;
   text-transform: capitalize;
   color: #fff;
-  transition: var(--transition-hover);
 }
 
 .admin-link {
@@ -65,10 +61,24 @@
   text-transform: uppercase;
 }
 
-.link:hover {
-  opacity: 0.8;
+.link::after,
+.admin-link::after {
+  display: block;
+  content: "";
+  background-color: #fff;
+  height: 3px;
+  width: 0%;
+  left: 50%;
+  position: absolute;
+  transition: var(--transition-hover);
+  transform: translateX(-50%);
+}
+
+.link:hover::after,
+.admin-link:hover::after {
+  width: 100%;
 }
 
 .link:active {
-  opacity: 0.6;
+  opacity: 0.8;
 }

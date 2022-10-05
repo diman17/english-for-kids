@@ -29,7 +29,7 @@
 
   /* transitions */
   --transition-navbar: left, 400ms linear;
-  --transition-hover: all, 200ms ease;
+  --transition-hover: all 300ms ease-in-out;
 
   /* shadows */
   --shadow: 0 4px 4px rgb(0 0 0 / 25%);

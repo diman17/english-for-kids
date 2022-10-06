@@ -1,11 +1,15 @@
 .category {
   position: relative;
   display: block;
-  min-height: var(--card-height);
+  height: 100%;
   text-decoration: none;
   border-radius: 5px;
   box-shadow: var(--shadow);
   transition: var(--transition-hover);
+}
+
+.category:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .category::before {
@@ -18,27 +22,33 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   background: var(--gradient-train);
+  transition: var(--transition-hover);
 }
 
 .play::before {
   background: var(--gradient-play);
 }
 
-.category:hover {
-  opacity: 0.8;
+.category:hover::before {
+  box-shadow: var(--shadow);
+  background: var(--gradient-train-reverse);
+}
+
+.play:hover::before {
+  box-shadow: var(--shadow);
+  background: var(--gradient-play-reverse);
 }
 
 .category:active {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .wrapper {
   position: relative;
-  top: 5%;
+  top: 15px;
   left: calc(50% - 90px);
   width: 180px;
   height: 180px;
-  margin-bottom: 15px;
   background-color: var(--background-default);
   border-radius: 50%;
 }
@@ -56,11 +66,10 @@
 
 .text {
   margin: 0;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 26px;
+  margin-top: 10px;
+  padding: 10px;
+  word-wrap: break-word;
   text-align: center;
   text-transform: capitalize;
-  color: black;
+  color: var(--font-dark);
 }

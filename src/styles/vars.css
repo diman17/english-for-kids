@@ -1,4 +1,6 @@
-:root {
+:root,
+::after,
+::before {
   /* colors */
   --primary-train: #00bf82;
   --secondary-train: #0099ae;
@@ -14,14 +16,24 @@
 
   /* gradients */
   --gradient-train: linear-gradient(
-    180deg,
+    210deg,
     var(--secondary-train),
     var(--primary-train)
   );
+  --gradient-train-reverse: linear-gradient(
+    210deg,
+    var(--primary-train),
+    var(--secondary-train)
+  );
   --gradient-play: linear-gradient(
-    40deg,
+    210deg,
     var(--secondary-play),
     var(--primary-play)
+  );
+  --gradient-play-reverse: linear-gradient(
+    210deg,
+    var(--primary-play),
+    var(--secondary-play)
   );
 
   /* breakpoints */
@@ -36,6 +48,7 @@
 
   /* shadows */
   --shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  --shadow-hover: 0 5px 5px rgb(0 0 0 / 50%);
 
   /* width, height */
   --nav: 380px;

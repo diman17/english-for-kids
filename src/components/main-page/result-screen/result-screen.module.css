@@ -9,6 +9,7 @@
   content: "";
   position: absolute;
   top: -140px;
+  left: -405px;
   width: 100vw;
   height: 100vh;
 }
@@ -16,17 +17,16 @@
 .text {
   margin: 0;
   margin-bottom: 50px;
-  font-family: Roboto, sans-serif;
-  font-weight: 900;
-  font-size: 42px;
-  line-height: 1.5;
+  font-weight: 700;
+  font-size: 2.6rem;
+  text-shadow: 1px 1px white, 2px 2px #777;
   text-transform: uppercase;
 }
 
 .text-success {
-  color: green;
+  color: #61d761;
 }
 
 .text-failure {
-  color: red;
+  color: #eb4a4a;
 }

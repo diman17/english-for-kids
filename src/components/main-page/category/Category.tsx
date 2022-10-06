@@ -25,7 +25,9 @@ function Category(props: CategoryProps) {
       <div className={styles.wrapper}>
         <img className={styles.image} src={image} alt={category.name} />
       </div>
-      <p className={styles.text}>{name}</p>
+      <div className={styles.inner}>
+        <p className={styles.text}>{name}</p>
+      </div>
     </Link>
   );
 }

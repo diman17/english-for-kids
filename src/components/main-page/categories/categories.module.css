@@ -7,5 +7,6 @@
 }
 
 .item {
+  position: relative;
   list-style-type: none;
 }

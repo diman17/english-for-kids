@@ -102,11 +102,13 @@
 
 .text {
   margin: 0;
+  padding: 0 5px;
+  white-space: nowrap;
   text-align: center;
   color: var(--font-dark);
 }
 
-.play .text {
+.play .inner {
   display: none;
 }
 

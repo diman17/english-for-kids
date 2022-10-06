@@ -16,9 +16,6 @@ function Main() {
   const isNavbarShown = useSelector(
     (state: RootState) => state.common.isNavbarShown,
   );
-  const isLoginModalShown = useSelector(
-    (state: RootState) => state.common.isLoginModalShown,
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,14 +45,8 @@ function Main() {
           </div>
         </div>
       </div>
-      {isLoginModalShown ? (
-        <>
-          <LoginModal />
-          <Overlay />
-        </>
-      ) : (
-        ''
-      )}
+      <LoginModal />
+      <Overlay />
     </>
   );
 }

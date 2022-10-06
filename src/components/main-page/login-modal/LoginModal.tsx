@@ -13,6 +13,10 @@ import styles from './login-modal.module.css';
 function LoginModal() {
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
   const admin = useSelector((state: RootState) => state.common.admin);
+  const isLoginModalShown = useSelector(
+    (state: RootState) => state.common.isLoginModalShown,
+  );
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -50,53 +54,61 @@ function LoginModal() {
   };
 
   return (
-    <section className={styles.modal}>
-      <h2 className={styles.title}>Log in</h2>
-      <form
-        onSubmit={(event: FormEvent<HTMLFormElement>) => event.preventDefault()}
-        action="#"
-      >
-        <label className={styles.label}>
-          <span className={styles['label-text']}>login</span>
-          <input
-            onChange={handleLoginInputChange}
-            className={styles.input}
-            type="text"
-            name="login"
-            placeholder="admin"
-          />
-        </label>
-        <label className={styles.label}>
-          <span className={styles['label-text']}>password</span>
-          <input
-            onChange={handlePasswordInputChange}
-            className={styles.input}
-            type="password"
-            name="password"
-            placeholder="admin"
-          />
-        </label>
-        <div
-          className={
-            isPlayMode ? `${styles.buttons} ${styles.play}` : styles.buttons
+    <section
+      className={
+        isLoginModalShown ? `${styles.modal} ${styles.show}` : styles.modal
+      }
+    >
+      <div className={styles.content}>
+        <h2 className={styles.title}>Log in</h2>
+        <form
+          onSubmit={(event: FormEvent<HTMLFormElement>) =>
+            event.preventDefault()
           }
+          action="#"
         >
-          <Button
-            handleClick={handleCancelButtonClick}
-            shape="cancel"
-            type="reset"
+          <label className={styles.label}>
+            <span className={styles['label-text']}>login</span>
+            <input
+              onChange={handleLoginInputChange}
+              className={styles.input}
+              type="text"
+              name="login"
+              placeholder="admin"
+            />
+          </label>
+          <label className={styles.label}>
+            <span className={styles['label-text']}>password</span>
+            <input
+              onChange={handlePasswordInputChange}
+              className={styles.input}
+              type="password"
+              name="password"
+              placeholder="admin"
+            />
+          </label>
+          <div
+            className={
+              isPlayMode ? `${styles.buttons} ${styles.play}` : styles.buttons
+            }
           >
-            <p style={{ margin: '0' }}>Cancel</p>
-          </Button>
-          <Button
-            handleClick={handleSubmitButtonClick}
-            shape="submit"
-            type="submit"
-          >
-            <p style={{ margin: '0' }}>Log in</p>
-          </Button>
-        </div>
-      </form>
+            <Button
+              handleClick={handleCancelButtonClick}
+              shape="cancel"
+              type="reset"
+            >
+              <p style={{ margin: '0' }}>Cancel</p>
+            </Button>
+            <Button
+              handleClick={handleSubmitButtonClick}
+              shape="submit"
+              type="submit"
+            >
+              <p style={{ margin: '0' }}>Log in</p>
+            </Button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 }

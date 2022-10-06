@@ -1,16 +1,36 @@
 .modal {
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  z-index: var(--i-modal);
+  width: 50%;
+  max-width: 630px;
+  min-width: 320px;
+  height: auto;
+  visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.show {
+  visibility: visible;
+}
+
+.content {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
-  width: 600px;
-  background-color: rgb(255 255 255 / 90%);
-  border: 1px solid black;
   border-radius: 10px;
+  box-shadow: 0 5px 10px 3px rgb(0 0 0 / 35%);
+  background-color: rgb(255 255 255 / 90%);
+  transform: translateY(20%);
+  opacity: 0;
+  transition: var(--transition-modal);
+}
+
+.show .content {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .title {

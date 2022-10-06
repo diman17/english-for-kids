@@ -45,6 +45,7 @@
   /* transitions */
   --transition-navbar: left, 400ms linear;
   --transition-hover: all 200ms ease-in-out;
+  --transition-modal: all 300ms;
 
   /* shadows */
   --shadow: 0 4px 4px rgb(0 0 0 / 25%);
@@ -53,4 +54,8 @@
   /* width, height */
   --nav: 380px;
   --card-height: 220px;
+
+  /* z-index */
+  --i-overlay: 5;
+  --i-modal: 10;
 }

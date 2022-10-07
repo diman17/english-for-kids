@@ -1,12 +1,8 @@
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 30px;
-  padding: 40px;
-  margin: 0;
+  composes: list from "../../main-page/categories/categories.module.css";
+  padding: 70px 190px 0;
 }
 
 .item {
-  list-style-type: none;
+  composes: item from "../../main-page/categories/categories.module.css";
 }

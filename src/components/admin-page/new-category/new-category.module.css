@@ -1,12 +1,5 @@
 .category {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: var(--card-height);
-  padding: 20px;
-  border-radius: 5px;
-  border: 3px solid grey;
+  composes: category from "../category/category.module.css";
 }
 
 .title {

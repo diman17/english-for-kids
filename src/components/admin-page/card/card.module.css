@@ -1,8 +1,5 @@
 .card {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  padding: 25px;
-  border-radius: 5px;
-  border: 3px solid grey;
+  composes: category from "../category/category.module.css";
+  min-height: 360px;
+  font-size: 1rem;
 }

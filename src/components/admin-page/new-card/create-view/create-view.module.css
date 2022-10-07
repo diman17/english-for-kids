@@ -1,9 +1,13 @@
+.visually-hidden {
+  composes: visually-hidden from "../../../../styles/base.css";
+}
+
 .label {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-bottom: 10px;
+  composes: label from "../../card/change-view/change-view.module.css";
+}
+
+.label-file {
+  composes: label-file from "../../card/change-view/change-view.module.css";
 }
 
 .label > button {
@@ -11,16 +15,22 @@
 }
 
 .label-text {
-  margin-bottom: 10px;
-  color: var(--form);
+  composes: label-text from "../../card/change-view/change-view.module.css";
+}
+
+.label-file .label-text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .input {
-  width: 100%;
-  font-size: 18px;
-  line-height: 20px;
-  border: none;
-  border-bottom: 2px solid var(--form);
+  composes: input from "../../card/change-view/change-view.module.css";
+}
+
+.input:focus {
+  border-color: black;
+  outline: none;
 }
 
 .input[type="file"] {
@@ -28,29 +38,27 @@
 }
 
 .buttons {
-  margin-top: 55px;
-  display: flex;
-  justify-content: space-between;
+  composes: buttons from "../../card/change-view/change-view.module.css";
+}
+
+.buttons button {
+  padding: 5px;
+  font-size: 1rem;
 }
 
 .btn {
-  padding: 0;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 500;
-  color: var(--admin);
-  border: none;
-  border: 2px solid var(--admin);
-  border-radius: 5px;
-  cursor: pointer;
-  transition: var(--transition-hover);
+  composes: btn from "../../card/change-view/change-view.module.css";
+}
+
+.btn-text {
+  composes: btn-text from "../../card/change-view/change-view.module.css";
 }
 
 .btn:hover {
-  opacity: 0.8;
+  box-shadow: 0 0 40px 40px var(--admin) inset, 0 0 5px 1px var(--admin);
+  color: var(--font-light);
 }
 
 .btn:active {
-  opacity: 0.6;
+  opacity: 0.8;
 }

@@ -1,29 +1,41 @@
 .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 400px;
-  padding: 25px;
-  border-radius: 5px;
-  border: 3px solid grey;
+  composes: category from "../category/category.module.css";
+  min-height: 360px;
+  font-size: 1rem;
 }
 
 .title {
-  margin: 0;
-  font-family: Roboto, sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
-  text-align: center;
-  text-transform: capitalize;
+  composes: title from "../new-category/new-category.module.css";
+  font-size: 1.375rem;
 }
 
 .button {
-  padding: 0;
-  margin-top: 50%;
-  align-self: center;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+  composes: button from "../new-category/new-category.module.css";
+  margin-bottom: 60px;
+}
+
+.button:active {
+  transform: scale(0.9);
+}
+
+.button-image {
+  width: 110px;
+  height: 110px;
+}
+
+.circle {
+  composes: circle from "../new-category/new-category.module.css";
+}
+
+.plus {
+  composes: plus from "../new-category/new-category.module.css";
+}
+
+.button:hover .circle {
+  fill: black;
+}
+
+.button:hover .plus {
+  fill: black;
+  transform: scale(1.1);
 }

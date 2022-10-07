@@ -5,7 +5,7 @@
   justify-content: space-between;
   width: 100%;
   min-height: var(--card-height);
-  padding: 20px;
+  padding: 20px 10%;
   border-radius: 5px;
   border: 3px solid grey;
 }

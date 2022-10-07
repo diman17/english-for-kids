@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { createCard } from '../../../../api/cards';
 import Button from '../../../../UI/button/Button';
 import styles from './create-view.module.css';
@@ -19,6 +19,10 @@ function CreateView(props: CreateViewProps) {
   const [cardSound, setCardSound] = useState('');
   const [cardSoundName, setCardSoundName] = useState('');
   const [cardImage, setCardImage] = useState('');
+
+  const setFocus = useCallback((element: HTMLInputElement) => {
+    element?.focus();
+  }, []);
 
   const handleInputNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCardName(event.target.value);
@@ -78,11 +82,13 @@ function CreateView(props: CreateViewProps) {
       <label className={styles.label}>
         <span className={styles['label-text']}>Word: </span>
         <input
+          ref={setFocus}
           onChange={handleInputNameChange}
           className={styles.input}
           type="text"
           name="word"
           value={cardName}
+          autoComplete="off"
         />
       </label>
       <label className={styles.label}>
@@ -93,38 +99,39 @@ function CreateView(props: CreateViewProps) {
           type="text"
           name="translation"
           value={cardTranslation}
+          autoComplete="off"
         />
       </label>
-      <label className={styles.label}>
+      <div className={styles['label-file']}>
         <span className={styles['label-text']}>Sound: </span>
-        <p
-          className={soundFile ? styles.input : styles.btn}
-          style={{ margin: '0' }}
-        >
-          {soundFile ? soundFile.name : 'Select file'}
-        </p>
-        <input
-          onChange={handleSelectSoundFileChange}
-          className={styles.input}
-          type="file"
-          name="sound"
-        />
-      </label>
-      <label className={styles.label}>
+        <label className={styles.btn}>
+          <span className={styles['visually-hidden']}>sound</span>
+          <span style={{ margin: '0' }} className={styles['btn-text']}>
+            {soundFile ? soundFile.name : 'Select file'}
+          </span>
+          <input
+            onChange={handleSelectSoundFileChange}
+            className={styles.input}
+            type="file"
+            name="sound"
+          />
+        </label>
+      </div>
+      <div className={styles['label-file']}>
         <span className={styles['label-text']}>Image: </span>
-        <p
-          className={imageFile ? styles.input : styles.btn}
-          style={{ margin: '0' }}
-        >
-          {imageFile ? imageFile.name : 'Select file'}
-        </p>
-        <input
-          onChange={handleSelectImageFileChange}
-          className={styles.input}
-          type="file"
-          name="image"
-        />
-      </label>
+        <label className={styles.btn}>
+          <span className={styles['visually-hidden']}>image</span>
+          <span style={{ margin: '0' }} className={styles['btn-text']}>
+            {imageFile ? imageFile.name : 'Select file'}
+          </span>
+          <input
+            onChange={handleSelectImageFileChange}
+            className={styles.input}
+            type="file"
+            name="image"
+          />
+        </label>
+      </div>
       <div className={styles.buttons}>
         <Button
           handleClick={handleCancelButtonClick}

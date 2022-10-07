@@ -11,7 +11,7 @@ const initialState: CommonState = {
     login: 'admin',
     password: 'englishforkids',
   },
-  isAdminAuth: true,
+  isAdminAuth: false,
 };
 
 const commonSlice = createSlice({

@@ -44,7 +44,7 @@
 
   /* transitions */
   --transition-navbar: left, 400ms linear;
-  --transition-hover: all 200ms ease-in-out;
+  --transition-hover: all 150ms ease-in-out;
   --transition-modal: all 300ms;
 
   /* shadows */

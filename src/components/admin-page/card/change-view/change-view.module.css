@@ -1,9 +1,16 @@
+.visually-hidden {
+  composes: visually-hidden from "../../../../styles/base.css";
+}
+
 .label {
   display: flex;
   flex-direction: column;
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-bottom: 10px;
+}
+
+.label-file {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .label > button {
@@ -11,16 +18,26 @@
 }
 
 .label-text {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
   color: var(--form);
+}
+
+.label-file .label-text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .input {
   width: 100%;
-  font-size: 18px;
-  line-height: 20px;
   border: none;
   border-bottom: 2px solid var(--form);
+}
+
+.input:focus {
+  border-color: black;
+  outline: none;
 }
 
 .input[type="file"] {
@@ -28,29 +45,39 @@
 }
 
 .buttons {
-  margin-top: 55px;
   display: flex;
   justify-content: space-between;
 }
 
-.btn {
-  padding: 0;
+.buttons button {
   padding: 5px;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 500;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 60%;
+  padding: 5px;
   color: var(--admin);
   border: none;
   border: 2px solid var(--admin);
   border-radius: 5px;
+  text-align: center;
   cursor: pointer;
   transition: var(--transition-hover);
 }
 
+.btn-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .btn:hover {
-  opacity: 0.8;
+  box-shadow: 0 0 40px 40px var(--admin) inset, 0 0 5px 1px var(--admin);
+  color: var(--font-light);
 }
 
 .btn:active {
-  opacity: 0.6;
+  opacity: 0.8;
 }

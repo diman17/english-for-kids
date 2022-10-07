@@ -5,4 +5,5 @@
 
 .item {
   composes: item from "../../main-page/categories/categories.module.css";
+  min-height: var(--card-height);
 }

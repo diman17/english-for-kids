@@ -1,8 +1,9 @@
 .category {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
   min-height: var(--card-height);
   padding: 20px;
   border-radius: 5px;

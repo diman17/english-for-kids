@@ -8,5 +8,6 @@
 
 .item {
   position: relative;
+  min-height: var(--card-height);
   list-style-type: none;
 }

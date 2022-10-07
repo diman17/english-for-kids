@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './default-view.module.css';
-import closeIcon from '../../../../assets/icons/close.png';
 import Button from '../../../../UI/button/Button';
 import { deleteCard } from '../../../../api/cards';
 
@@ -36,7 +35,20 @@ function DefaultView(props: DefaultViewProps) {
   return (
     <>
       <button onClick={handleDeleteButtonClick} className={styles.button}>
-        <img className={styles['button-image']} src={closeIcon} alt="close" />
+        <svg
+          className={styles['button-image']}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 25 25"
+          xmlSpace="preserve"
+        >
+          <path
+            fill="#5F6368"
+            stroke="#5F6368"
+            strokeWidth="3.232"
+            strokeLinecap="round"
+            d="m3.966 3.568 17.4 18.2m-17.4 0 17.4-18.2"
+          />
+        </svg>
       </button>
       <p className={styles.text}>
         Word: <span>{cardName}</span>

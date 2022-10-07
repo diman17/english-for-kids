@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useCallback } from 'react';
 import { updateCategory } from '../../../../api/categories';
 import Button from '../../../../UI/button/Button';
 import styles from './rename-view.module.css';
@@ -19,6 +19,10 @@ function RenameView(props: RenameViewProps) {
     setCategoryName(event.target.value);
   };
 
+  const setFocus = useCallback((element: HTMLInputElement) => {
+    element?.focus();
+  }, []);
+
   const handleCancelButtonClick = () => {
     setIsRename(false);
     setCategoryName(name);
@@ -32,13 +36,15 @@ function RenameView(props: RenameViewProps) {
   return (
     <>
       <label className={styles.label}>
-        <span className={styles['label-text']}>Category Name:</span>
+        <span className={styles['label-text']}>Category name:</span>
         <input
+          ref={setFocus}
           onChange={handleInputNameChange}
           className={styles.input}
           type="text"
           name="name"
           value={categoryName}
+          autoComplete="off"
         />
       </label>
       <div className={styles.buttons}>

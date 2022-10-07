@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useCallback, useState } from 'react';
 import { createCategory } from '../../../../api/categories';
 import Button from '../../../../UI/button/Button';
 import styles from './create-view.module.css';
@@ -12,6 +12,10 @@ function CreateView(props: CreateViewProps) {
   const { setIsCreate, setRerender } = props;
 
   const [categoryName, setCategoryName] = useState('');
+
+  const setFocus = useCallback((element: HTMLInputElement) => {
+    element?.focus();
+  }, []);
 
   const handleInputNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCategoryName(event.target.value);
@@ -30,13 +34,15 @@ function CreateView(props: CreateViewProps) {
   return (
     <>
       <label className={styles.label}>
-        <span className={styles['label-text']}>Category Name:</span>
+        <span className={styles['label-text']}>Category name:</span>
         <input
+          ref={setFocus}
           onChange={handleInputNameChange}
           className={styles.input}
           type="text"
           name="name"
           value={categoryName}
+          autoComplete="off"
         />
       </label>
       <div className={styles.buttons}>

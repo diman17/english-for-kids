@@ -35,8 +35,7 @@
 
 .title {
   margin-bottom: 20px;
-  font-size: 38px;
-  line-height: 1.2;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -48,23 +47,28 @@
 }
 
 .label-text {
+  margin-bottom: 10px;
+  font-size: 1rem;
   color: var(--form);
 }
 
 .input {
   margin-bottom: 30px;
   width: 100%;
-  font-size: 32px;
-  line-height: 42px;
   border: none;
   border-bottom: 2px solid var(--form);
+}
+
+.input:focus {
+  border-bottom: 2px solid black;
+  outline: none;
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
   padding: 25px 20%;
-  margin-top: 50px;
+  margin-top: 30px;
   background: var(--gradient-train);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;

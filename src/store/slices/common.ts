@@ -9,7 +9,7 @@ const initialState: CommonState = {
   isLoginModalShown: false,
   admin: {
     login: 'admin',
-    password: 'admin',
+    password: 'englishforkids',
   },
   isAdminAuth: false,
 };

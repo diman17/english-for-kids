@@ -49,9 +49,14 @@ function Navbar() {
         ))}
       </ul>
       {isAdminAuth ? (
-        <Link className={`${styles.link} ${styles['admin-link']}`} to="/admin">
-          Admin panel
-        </Link>
+        <span className={styles.wrapper}>
+          <Link
+            className={`${styles.link} ${styles['admin-link']}`}
+            to="/admin"
+          >
+            Admin panel
+          </Link>
+        </span>
       ) : (
         <Button handleClick={handleButtonClick} shape="log" type="button">
           <p style={{ margin: '0' }}>Log in</p>

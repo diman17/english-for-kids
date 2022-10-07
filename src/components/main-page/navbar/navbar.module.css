@@ -57,8 +57,11 @@
 }
 
 .admin-link {
-  margin-top: auto;
   text-transform: uppercase;
+}
+
+.wrapper {
+  margin-top: auto;
 }
 
 .link::after,

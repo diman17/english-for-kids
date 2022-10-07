@@ -1,4 +1,10 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -22,6 +28,26 @@ function LoginModal() {
 
   const [loginValue, setLoginValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const closeModalByKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') dispatch(hideLoginModal());
+    };
+    window.addEventListener('keydown', closeModalByKey);
+    return () => {
+      window.removeEventListener('keydown', closeModalByKey);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLoginModalShown) {
+      setTimeout(() => {
+        ref.current?.focus();
+      }, 100);
+    }
+  }, [isLoginModalShown]);
 
   const handleLoginInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setLoginValue(event.target.value);
@@ -48,7 +74,7 @@ function LoginModal() {
     } else {
       alert(`
         login: 'admin'
-        password: 'admin'
+        password: 'englishforkids'
       `);
     }
   };
@@ -70,11 +96,14 @@ function LoginModal() {
           <label className={styles.label}>
             <span className={styles['label-text']}>login</span>
             <input
+              ref={ref}
               onChange={handleLoginInputChange}
               className={styles.input}
               type="text"
               name="login"
               placeholder="admin"
+              autoComplete="off"
+              required
             />
           </label>
           <label className={styles.label}>
@@ -84,7 +113,9 @@ function LoginModal() {
               className={styles.input}
               type="password"
               name="password"
-              placeholder="admin"
+              placeholder="englishforkids"
+              autoComplete="off"
+              required
             />
           </label>
           <div

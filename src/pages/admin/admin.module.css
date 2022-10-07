@@ -1,9 +1,5 @@
 @import "../../styles/vars.css";
 
 .page {
-  width: var(--xl);
-  margin: 0 auto;
-  min-height: 100vh;
-  background-color: var(--background-default);
-  overflow: hidden;
+  composes: page from "../main/main.module.css";
 }

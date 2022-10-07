@@ -1,7 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 30px 60px;
+  padding: 10px 50px;
   background: var(--gradient-train);
 }
 
@@ -18,12 +18,13 @@
 }
 
 .text {
-  font-family: Roboto, sans-serif;
-  font-size: 22px;
-  line-height: 1.2;
-  color: white;
+  color: var(--font-light);
 }
 
 .button {
   margin-left: auto;
+}
+
+.button button {
+  padding: 15px 50px;
 }

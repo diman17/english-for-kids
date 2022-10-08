@@ -7,7 +7,7 @@ function Admin() {
   return (
     <div className={styles.page}>
       <Header />
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
     </div>

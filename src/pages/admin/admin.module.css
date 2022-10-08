@@ -3,3 +3,9 @@
 .page {
   composes: page from "../main/main.module.css";
 }
+
+.main {
+  composes: main from "../main/main.module.css";
+  padding-left: 190px;
+  padding-right: 190px;
+}

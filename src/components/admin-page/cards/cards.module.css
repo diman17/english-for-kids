@@ -1,6 +1,5 @@
 .list {
   composes: list from "../../main-page/categories/categories.module.css";
-  padding: 70px 190px 0;
 }
 
 .item {

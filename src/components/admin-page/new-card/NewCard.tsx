@@ -4,11 +4,11 @@ import CreateView from './create-view/CreateView';
 
 type NewCardProps = {
   categoryId: number;
-  setRerender: (arg: number) => void;
+  updateCards: () => void;
 };
 
 function NewCard(props: NewCardProps) {
-  const { categoryId, setRerender } = props;
+  const { categoryId, updateCards } = props;
 
   const [isCreate, setIsCreate] = useState(false);
 
@@ -21,7 +21,7 @@ function NewCard(props: NewCardProps) {
       {isCreate ? (
         <CreateView
           setIsCreate={setIsCreate}
-          setRerender={setRerender}
+          updateCards={updateCards}
           categoryId={categoryId}
         />
       ) : (

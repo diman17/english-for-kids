@@ -5,11 +5,11 @@ import styles from './create-view.module.css';
 
 type CreateViewProps = {
   setIsCreate: (arg: boolean) => void;
-  setRerender: (arg: number) => void;
+  updateCategories: () => void;
 };
 
 function CreateView(props: CreateViewProps) {
-  const { setIsCreate, setRerender } = props;
+  const { setIsCreate, updateCategories } = props;
 
   const [categoryName, setCategoryName] = useState('');
 
@@ -28,7 +28,7 @@ function CreateView(props: CreateViewProps) {
 
   const handleOkButtonClick = () => {
     setIsCreate(false);
-    createCategory(categoryName).then(() => setRerender(Date.now()));
+    createCategory(categoryName).then(() => updateCategories());
   };
 
   return (

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getAllCards } from '../../../api/cards';
 import { getCategories } from '../../../api/categories';
+import useForceUpdate from '../../../hooks/useForceUpdate';
 import { setCategories } from '../../../store/slices/common';
 import { RootState } from '../../../store/store';
 import { Category as CategoryType } from '../../../types/common';
@@ -12,7 +13,7 @@ import styles from './categories.module.css';
 
 function Categories() {
   const [cards, setCards] = useState([]);
-  const [rerender, setRerender] = useState(0);
+  const [trigger, updateCategories] = useForceUpdate();
 
   const dispatch = useDispatch();
   const categories = useSelector((state: RootState) => state.common.categories);
@@ -20,21 +21,21 @@ function Categories() {
   useEffect(() => {
     getCategories().then((categories) => dispatch(setCategories(categories)));
     getAllCards().then((cards) => setCards(cards));
-  }, [rerender]);
+  }, [trigger]);
 
   return (
     <ul className={styles.list}>
       {categories.map((category: CategoryType) => (
         <li className={styles.item} key={category.id}>
           <Category
-            setRerender={setRerender}
+            updateCategories={updateCategories}
             category={category}
             cards={cards}
           />
         </li>
       ))}
       <li className={styles.item}>
-        <NewCategory setRerender={setRerender} />
+        <NewCategory updateCategories={updateCategories} />
       </li>
     </ul>
   );

@@ -5,7 +5,7 @@ import { deleteCard } from '../../../../api/cards';
 
 type DefaultViewProps = {
   setIsChange: (arg: boolean) => void;
-  setRerender: (arg: number) => void;
+  updateCards: () => void;
   id: number;
   cardName: string;
   cardTranslation: string;
@@ -16,7 +16,7 @@ type DefaultViewProps = {
 function DefaultView(props: DefaultViewProps) {
   const {
     setIsChange,
-    setRerender,
+    updateCards,
     id,
     cardName,
     cardTranslation,
@@ -29,7 +29,7 @@ function DefaultView(props: DefaultViewProps) {
   };
 
   const handleDeleteButtonClick = () => {
-    deleteCard(id).then(() => setRerender(Date.now()));
+    deleteCard(id).then(() => updateCards());
   };
 
   return (

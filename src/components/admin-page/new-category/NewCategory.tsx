@@ -3,11 +3,11 @@ import styles from './new-category.module.css';
 import CreateView from './create-view/CreateView';
 
 type NewCategoryProps = {
-  setRerender: (arg: number) => void;
+  updateCategories: () => void;
 };
 
 function NewCategory(props: NewCategoryProps) {
-  const { setRerender } = props;
+  const { updateCategories } = props;
 
   const [isCreate, setIsCreate] = useState(false);
 
@@ -18,7 +18,10 @@ function NewCategory(props: NewCategoryProps) {
   return (
     <article className={styles.category}>
       {isCreate ? (
-        <CreateView setIsCreate={setIsCreate} setRerender={setRerender} />
+        <CreateView
+          setIsCreate={setIsCreate}
+          updateCategories={updateCategories}
+        />
       ) : (
         <>
           <p className={styles.title}>Create new Category</p>

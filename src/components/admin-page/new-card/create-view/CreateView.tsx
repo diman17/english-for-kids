@@ -5,12 +5,12 @@ import styles from './create-view.module.css';
 
 type CreateViewProps = {
   setIsCreate: (arg: boolean) => void;
-  setRerender: (arg: number) => void;
+  updateCards: () => void;
   categoryId: number;
 };
 
 function CreateView(props: CreateViewProps) {
-  const { setIsCreate, setRerender, categoryId } = props;
+  const { setIsCreate, updateCards, categoryId } = props;
 
   const [soundFile, setSoundFile] = useState<File | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -74,7 +74,7 @@ function CreateView(props: CreateViewProps) {
       cardName,
       cardTranslation,
       categoryId,
-    ).then(() => setRerender(Date.now()));
+    ).then(() => updateCards());
   };
 
   return (

@@ -5,12 +5,12 @@ import DefaultView from './dafault-view/DefaultView';
 import ChangeView from './change-view/ChangeView';
 
 type CardProps = {
-  setRerender: (arg: number) => void;
+  updateCards: () => void;
   card: CardType;
 };
 
 function Card(props: CardProps) {
-  const { setRerender, card } = props;
+  const { updateCards, card } = props;
   const { id, image, audioName, text, translate } = card;
 
   const [isChange, setIsChange] = useState(false);
@@ -37,7 +37,7 @@ function Card(props: CardProps) {
       ) : (
         <DefaultView
           setIsChange={setIsChange}
-          setRerender={setRerender}
+          updateCards={updateCards}
           id={id}
           cardName={cardName}
           cardTranslation={cardTranslation}

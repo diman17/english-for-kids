@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { getCountCardsByCategoryId } from '../../../api/cards';
 import { Cards, Category as CategoryType } from '../../../types/common';
 import { getCountCardsByCategoryId } from '../../../utils/common';
 import styles from './category.module.css';
@@ -7,13 +6,13 @@ import DefaultView from './default-view/DefaultView';
 import RenameView from './rename-view/RenameView';
 
 type CategoryProps = {
-  setRerender: (arg: number) => void;
+  updateCategories: () => void;
   category: CategoryType;
   cards: Cards;
 };
 
 function Category(props: CategoryProps) {
-  const { setRerender, category, cards } = props;
+  const { updateCategories, category, cards } = props;
   const { id, name } = category;
 
   const [isRename, setIsRename] = useState(false);
@@ -37,7 +36,7 @@ function Category(props: CategoryProps) {
       ) : (
         <DefaultView
           setIsRename={setIsRename}
-          setRerender={setRerender}
+          updateCategories={updateCategories}
           categoryId={id}
           categoryName={categoryName}
           count={count}

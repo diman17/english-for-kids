@@ -6,14 +6,15 @@ import { deleteCategory } from '../../../../api/categories';
 
 type DefaultViewProps = {
   setIsRename: (arg: boolean) => void;
-  setRerender: (arg: number) => void;
+  updateCategories: () => void;
   categoryId: number;
   categoryName: string;
   count: number | null;
 };
 
 function DefaultView(props: DefaultViewProps) {
-  const { setIsRename, setRerender, categoryId, categoryName, count } = props;
+  const { setIsRename, updateCategories, categoryId, categoryName, count } =
+    props;
 
   const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ function DefaultView(props: DefaultViewProps) {
   };
 
   const handleDeleteButtonClick = () => {
-    deleteCategory(categoryId).then(() => setRerender(Date.now()));
+    deleteCategory(categoryId).then(() => updateCategories());
   };
 
   return (

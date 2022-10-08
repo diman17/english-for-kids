@@ -1,4 +1,5 @@
-const URL = 'http://localhost:3000/api/categories';
+const URL =
+  'https://english-for-kids-nbnjp13wz-diman17.vercel.app/api/categories';
 
 type CategoryFromDataBase = {
   category_id: number;

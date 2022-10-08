@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000/api/cards';
+const URL = 'https://english-for-kids-nbnjp13wz-diman17.vercel.app/api/cards';
 
 type CardFromDataBase = {
   card_id: number;
@@ -43,7 +43,7 @@ export const updateCard = async (
   await fetch(`${URL}`, {
     method: 'PUT',
     headers: {
-      'Content-type': 'Application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       id,
@@ -67,7 +67,7 @@ export const createCard = async (
   await fetch(`${URL}`, {
     method: 'POST',
     headers: {
-      'Content-type': 'Application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       image,

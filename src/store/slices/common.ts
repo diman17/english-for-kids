@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Categories } from '../../types/common';
+import { Card, Cards, Categories, Category } from '../../types/common';
 import { CommonState } from '../../types/store';
 
 const initialState: CommonState = {
   isNavbarShown: false,
   isPlayMode: false,
   categories: [],
+  cards: [],
   isLoginModalShown: false,
   admin: {
     login: 'admin',
@@ -26,6 +27,21 @@ const commonSlice = createSlice({
     },
     setCategories(state: CommonState, action: PayloadAction<Categories>) {
       state.categories = action.payload;
+    },
+    updateCategories(state: CommonState, action: PayloadAction<Category>) {
+      const index = state.categories.findIndex(
+        (category) => category.id === action.payload.id,
+      );
+      state.categories.splice(index, 1, action.payload);
+    },
+    setCards(state: CommonState, action: PayloadAction<Cards>) {
+      state.cards = action.payload;
+    },
+    updateCards(state: CommonState, action: PayloadAction<Card>) {
+      const index = state.cards.findIndex(
+        (card) => card.id === action.payload.id,
+      );
+      state.cards.splice(index, 1, action.payload);
     },
     enablePlayMode(state: CommonState) {
       state.isPlayMode = true;
@@ -52,6 +68,9 @@ export const {
   showNavbar,
   hideNavbar,
   setCategories,
+  updateCategories,
+  setCards,
+  updateCards,
   enablePlayMode,
   disablePlayMode,
   showLoginModal,

@@ -7,10 +7,11 @@ import ChangeView from './change-view/ChangeView';
 type CardProps = {
   updateCards: () => void;
   card: CardType;
+  categoryId: number;
 };
 
 function Card(props: CardProps) {
-  const { updateCards, card } = props;
+  const { updateCards, card, categoryId } = props;
   const { id, image, audioName, text, translate } = card;
 
   const [isChange, setIsChange] = useState(false);
@@ -33,6 +34,7 @@ function Card(props: CardProps) {
           cardSoundName={cardSoundName}
           cardName={cardName}
           cardTranslation={cardTranslation}
+          categoryId={categoryId}
         />
       ) : (
         <DefaultView

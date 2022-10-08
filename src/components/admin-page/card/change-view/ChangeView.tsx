@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { updateCard } from '../../../../api/cards';
+import { updateCards } from '../../../../store/slices/common';
 import { Card } from '../../../../types/common';
 import Button from '../../../../UI/button/Button';
 import styles from './change-view.module.css';
@@ -15,6 +17,7 @@ type ChangeTypeProps = {
   cardSoundName: string;
   cardName: string;
   cardTranslation: string;
+  categoryId: number;
 };
 
 function ChangeView(props: ChangeTypeProps) {
@@ -29,6 +32,7 @@ function ChangeView(props: ChangeTypeProps) {
     cardSoundName,
     cardName,
     cardTranslation,
+    categoryId,
   } = props;
 
   const { id, image, audio, audioName, text, translate } = card;
@@ -40,6 +44,8 @@ function ChangeView(props: ChangeTypeProps) {
   const setFocus = useCallback((element: HTMLInputElement) => {
     element?.focus();
   }, []);
+
+  const dispatch = useDispatch();
 
   const handleInputNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCardName(event.target.value);
@@ -84,6 +90,17 @@ function ChangeView(props: ChangeTypeProps) {
 
   const handleOkButtonClick = () => {
     setIsChange(false);
+    dispatch(
+      updateCards({
+        id,
+        image: cardImage,
+        audio: cardSound,
+        audioName: cardSoundName,
+        text: cardName,
+        translate: cardTranslation,
+        categoryId,
+      }),
+    );
     updateCard(
       id,
       cardImage,

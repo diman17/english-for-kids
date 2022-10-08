@@ -1,5 +1,7 @@
 import React, { ChangeEvent, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { updateCategory } from '../../../../api/categories';
+import { updateCategories } from '../../../../store/slices/common';
 import Button from '../../../../UI/button/Button';
 import styles from './rename-view.module.css';
 
@@ -15,13 +17,15 @@ function RenameView(props: RenameViewProps) {
   const { setCategoryName, setIsRename, name, categoryId, categoryName } =
     props;
 
-  const handleInputNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setCategoryName(event.target.value);
-  };
+  const dispatch = useDispatch();
 
   const setFocus = useCallback((element: HTMLInputElement) => {
     element?.focus();
   }, []);
+
+  const handleInputNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setCategoryName(event.target.value);
+  };
 
   const handleCancelButtonClick = () => {
     setIsRename(false);
@@ -30,6 +34,12 @@ function RenameView(props: RenameViewProps) {
 
   const handleOkButtonClick = () => {
     updateCategory(categoryId, categoryName);
+    dispatch(
+      updateCategories({
+        id: categoryId,
+        name: categoryName,
+      }),
+    );
     setIsRename(false);
   };
 

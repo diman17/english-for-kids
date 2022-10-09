@@ -1,0 +1,33 @@
+.loader span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  margin: 150px auto;
+  background: #9e9e9e;
+  border-radius: 50%;
+  animation: load 0.9s infinite alternate;
+}
+
+#bubble2 {
+  animation-delay: 0.27s;
+}
+#bubble3 {
+  animation-delay: 0.54s;
+}
+
+@keyframes load {
+  0% {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    width: 35px;
+    height: 35px;
+    opacity: 0.1;
+    transform: translateY(-32px);
+  }
+}

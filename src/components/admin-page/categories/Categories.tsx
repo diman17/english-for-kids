@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCards } from '../../../api/cards';
 import { getCategories } from '../../../api/categories';
 import useForceUpdate from '../../../hooks/useForceUpdate';
-import { setCategories } from '../../../store/slices/common';
+import {
+  setCategories,
+  setCards as setCardsById,
+} from '../../../store/slices/common';
 import { RootState } from '../../../store/store';
 import { Category as CategoryType } from '../../../types/common';
 import Category from '../category/Category';
@@ -20,6 +23,7 @@ function Categories() {
   useEffect(() => {
     getCategories().then((categories) => dispatch(setCategories(categories)));
     getAllCards().then((cards) => setCards(cards));
+    dispatch(setCardsById([]));
   }, [trigger]);
 
   return (

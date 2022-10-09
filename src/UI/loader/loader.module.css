@@ -1,9 +1,12 @@
+.loader {
+  align-self: center;
+}
+
 .loader span {
   display: inline-block;
   vertical-align: middle;
   width: 15px;
   height: 15px;
-  margin: 150px auto;
   background: #9e9e9e;
   border-radius: 50%;
   animation: load 0.9s infinite alternate;
@@ -12,6 +15,7 @@
 #bubble2 {
   animation-delay: 0.27s;
 }
+
 #bubble3 {
   animation-delay: 0.54s;
 }

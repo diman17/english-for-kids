@@ -1,43 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getAllCards } from '../../../api/cards';
-import { RootState } from '../../../store/store';
-import { Cards, Category as CategoryType } from '../../../types/common';
-import {
-  getCardsByCategoryId,
-  getRandomImageFromCards,
-} from '../../../utils/common';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '../../../store/store';
+import { Category as CategoryType } from '../../../types/common';
 import Category from '../category/Category';
 import styles from './categories.module.css';
-import noImage from '../../../assets/images/no-image.jpg';
+import { fetchCards } from '../../../store/slices/cards';
+import Loader from '../../../UI/loader/Loader';
 
 function Categories() {
-  const categories = useSelector((state: RootState) => state.common.categories);
+  const dispatch = useDispatch<AppDispatch>();
 
-  const [cards, setCards] = useState<Cards>([]);
+  const { categories } = useSelector((state: RootState) => state.categories);
+  const { isLoading } = useSelector((state: RootState) => state.cards);
 
   useEffect(() => {
-    getAllCards().then((cards: Cards) => setCards(cards));
+    dispatch(fetchCards());
   }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <ul className={styles.list}>
-      {categories.map((category: CategoryType) => {
-        const cardsByCategoryId = getCardsByCategoryId(cards, category.id);
-
-        let imageCategory: string;
-        if (cardsByCategoryId.length === 0) {
-          imageCategory = noImage;
-        } else {
-          imageCategory = getRandomImageFromCards(cardsByCategoryId) as string;
-        }
-
-        return (
-          <li className={styles.item} key={category.id}>
-            <Category category={category} image={imageCategory} />
-          </li>
-        );
-      })}
+      {categories.map((category: CategoryType) => (
+        <li className={styles.item} key={category.id}>
+          <Category category={category} />
+        </li>
+      ))}
     </ul>
   );
 }

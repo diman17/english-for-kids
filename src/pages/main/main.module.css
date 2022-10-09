@@ -23,7 +23,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  min-height: 40vh;
   padding-top: 70px;
   padding-bottom: 40px;
 }

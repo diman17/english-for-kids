@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { showLoginModal } from '../../../store/slices/common';
@@ -8,8 +8,9 @@ import Button from '../../../UI/button/Button';
 import styles from './navbar.module.css';
 
 function Navbar() {
-  const categories = useSelector((state: RootState) => state.common.categories);
-  const ref = useRef<HTMLElement>(null);
+  const dispatch = useDispatch();
+
+  const { categories } = useSelector((state: RootState) => state.categories);
   const isNavbarShown = useSelector(
     (state: RootState) => state.common.isNavbarShown,
   );
@@ -17,7 +18,6 @@ function Navbar() {
   const isAdminAuth = useSelector(
     (state: RootState) => state.common.isAdminAuth,
   );
-  const dispatch = useDispatch();
 
   const handleButtonClick = () => {
     dispatch(showLoginModal());
@@ -32,7 +32,6 @@ function Navbar() {
             } ${styles['navbar-shown']}`
           : `${isPlayMode ? `${styles.navbar} ${styles.play}` : styles.navbar}`
       }
-      ref={ref}
     >
       <ul className={styles.list}>
         <li className={styles.item}>

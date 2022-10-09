@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getCardsByCategoryId } from '../../../api/cards';
 import { setCurrentCards, startGame } from '../../../store/slices/game';
-import { RootState } from '../../../store/store';
-import { Card as CardType, Cards as CardsType } from '../../../types/common';
+import { AppDispatch, RootState } from '../../../store/store';
+import { Card as CardType } from '../../../types/common';
 import { playAudio, shuffle } from '../../../utils/common';
 import Card from '../card/Card';
 import ResultScreen from '../result-screen/ResultScreen';
 import Stars from '../stars/Stars';
 import styles from './cards.module.css';
 import repeatIcon from '../../../assets/icons/repeat.svg';
+import { fetchCardsByCategoryId } from '../../../store/slices/cards';
+import Loader from '../../../UI/loader/Loader';
 
 function Cards() {
   const params = useParams();
-  const categoryId = params.categoryId as string;
+  const categoryId = Number(params.categoryId);
 
-  const [cards, setCards] = useState<CardsType>([]);
+  const dispatch = useDispatch<AppDispatch>();
 
-  const dispatch = useDispatch();
+  const { cardsByCategoryId, isLoading } = useSelector(
+    (state: RootState) => state.cards,
+  );
   const isPlayMode = useSelector((state: RootState) => state.common.isPlayMode);
   const isGameStart = useSelector((state: RootState) => state.game.isGameStart);
   const currentCardIndex = useSelector(
@@ -32,10 +35,8 @@ function Cards() {
   );
 
   useEffect(() => {
-    getCardsByCategoryId(Number(categoryId)).then((cards: CardsType) => {
-      setCards(cards);
-      dispatch(setCurrentCards(shuffle(cards)));
-    });
+    dispatch(fetchCardsByCategoryId(categoryId));
+    dispatch(setCurrentCards(shuffle(cardsByCategoryId)));
   }, [categoryId, isPlayMode]);
 
   useEffect(() => {
@@ -43,10 +44,6 @@ function Cards() {
       playAudio(currentCards[currentCardIndex].audio, 800);
     }
   }, [currentCardIndex]);
-
-  if (isResultScreenShown) {
-    return <ResultScreen />;
-  }
 
   const handleButton = () => {
     if (!isGameStart) {
@@ -56,11 +53,19 @@ function Cards() {
     playAudio(currentCards[currentCardIndex].audio);
   };
 
+  if (isResultScreenShown) {
+    return <ResultScreen />;
+  }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       {isPlayMode ? <Stars /> : ''}
       <ul className={styles.list}>
-        {cards?.map((card: CardType) => (
+        {cardsByCategoryId?.map((card: CardType) => (
           <li key={card.id} className={styles.item}>
             <Card card={card} />
           </li>

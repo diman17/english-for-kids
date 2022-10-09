@@ -21,3 +21,14 @@ export type GameState = {
   mistakes: number;
   isResultScreenShown: boolean;
 };
+
+export type CategoriesState = {
+  categories: Categories | [];
+  isLoading: boolean;
+};
+
+export type CardsState = {
+  cards: Cards | [];
+  cardsByCategoryId: Cards | [];
+  isLoading: boolean;
+};

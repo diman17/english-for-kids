@@ -1,8 +1,5 @@
 import { Card, Cards } from '../types/common';
 
-const getRandomIntegerNumber = (min: number, max: number) =>
-  Math.floor(min + Math.random() * (max + 1 - min));
-
 export const shuffle = <T>(arr: T[]) => {
   const array = [...arr];
   if (array) {
@@ -27,7 +24,4 @@ export const getCountCardsByCategoryId = (cards: Cards, id: number) =>
 export const getCardsByCategoryId = (cards: Cards, id: number) =>
   cards.filter((card: Card) => card.categoryId === id);
 
-export const getRandomImageFromCards = (cards: Cards) => {
-  const randomIndex = getRandomIntegerNumber(0, cards.length - 1);
-  return cards[randomIndex].image;
-};
+export const getImageFromCards = (cards: Cards) => cards[0].image;

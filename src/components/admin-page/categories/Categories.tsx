@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCards } from '../../../api/cards';
-import { getCategories } from '../../../api/categories';
 import useForceUpdate from '../../../hooks/useForceUpdate';
+import { fetchCards } from '../../../store/slices/cards';
+import { fetchCategories } from '../../../store/slices/categories';
 import {
   setCategories,
   setCards as setCardsById,
 } from '../../../store/slices/common';
-import { RootState } from '../../../store/store';
+import { AppDispatch, RootState } from '../../../store/store';
 import { Category as CategoryType } from '../../../types/common';
+import Loader from '../../../UI/loader/Loader';
 import Category from '../category/Category';
 import NewCategory from '../new-category/NewCategory';
 import styles from './categories.module.css';
@@ -17,14 +18,22 @@ function Categories() {
   const [cards, setCards] = useState([]);
   const [trigger, updateCategories] = useForceUpdate();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
   const categories = useSelector((state: RootState) => state.common.categories);
+  const { isLoading } = useSelector((state: RootState) => state.cards);
 
   useEffect(() => {
-    getCategories().then((categories) => dispatch(setCategories(categories)));
-    getAllCards().then((cards) => setCards(cards));
+    dispatch(fetchCategories()).then(({ payload }) =>
+      dispatch(setCategories(payload)),
+    );
+    dispatch(fetchCards()).then(({ payload }) => setCards(payload));
     dispatch(setCardsById([]));
   }, [trigger]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <ul className={styles.list}>

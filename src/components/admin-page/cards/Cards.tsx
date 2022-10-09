@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getCardsByCategoryId } from '../../../api/cards';
 import useForceUpdate from '../../../hooks/useForceUpdate';
+import { fetchCardsByCategoryId } from '../../../store/slices/cards';
 import { setCards } from '../../../store/slices/common';
-import { RootState } from '../../../store/store';
-import { Card as CardType, Cards as CardsType } from '../../../types/common';
+import { AppDispatch, RootState } from '../../../store/store';
+import { Card as CardType } from '../../../types/common';
+import Loader from '../../../UI/loader/Loader';
 import Card from '../card/Card';
 import NewCard from '../new-card/NewCard';
 import styles from './cards.module.css';
@@ -14,31 +15,33 @@ function Cards() {
   const [trigger, updateCards] = useForceUpdate();
 
   const params = useParams();
-  const categoryId = params.categoryId as string;
+  const categoryId = Number(params.categoryId);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const cards = useSelector((state: RootState) => state.common.cards);
 
+  const { isLoading } = useSelector((state: RootState) => state.cards);
+
   useEffect(() => {
-    getCardsByCategoryId(Number(categoryId)).then((cards: CardsType) => {
-      dispatch(setCards(cards));
+    dispatch(fetchCardsByCategoryId(categoryId)).then(({ payload }) => {
+      dispatch(setCards(payload));
     });
   }, [categoryId, trigger]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <ul className={styles.list}>
       {cards?.map((card: CardType) => (
         <li key={card.id} className={styles.item}>
-          <Card
-            updateCards={updateCards}
-            card={card}
-            categoryId={Number(categoryId)}
-          />
+          <Card updateCards={updateCards} card={card} categoryId={categoryId} />
         </li>
       ))}
       <li className={styles.item}>
-        <NewCard categoryId={Number(categoryId)} updateCards={updateCards} />
+        <NewCard categoryId={categoryId} updateCards={updateCards} />
       </li>
     </ul>
   );

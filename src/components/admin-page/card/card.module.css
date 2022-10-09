@@ -1,5 +1,5 @@
 .card {
   composes: category from "../category/category.module.css";
-  min-height: 360px;
+  min-height: 345px;
   font-size: 1rem;
 }

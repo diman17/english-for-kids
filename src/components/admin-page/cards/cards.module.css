@@ -4,5 +4,5 @@
 
 .item {
   composes: item from "../../main-page/categories/categories.module.css";
-  min-height: 360px;
+  min-height: 345px;
 }

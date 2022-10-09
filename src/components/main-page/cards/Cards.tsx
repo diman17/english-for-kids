@@ -35,9 +35,14 @@ function Cards() {
   );
 
   useEffect(() => {
-    dispatch(fetchCardsByCategoryId(categoryId));
+    dispatch(fetchCardsByCategoryId(categoryId)).then(({ payload }) => {
+      dispatch(setCurrentCards(shuffle(payload)));
+    });
+  }, [categoryId]);
+
+  useEffect(() => {
     dispatch(setCurrentCards(shuffle(cardsByCategoryId)));
-  }, [categoryId, isPlayMode]);
+  }, [isPlayMode]);
 
   useEffect(() => {
     if (currentCardIndex !== 0) {
@@ -59,6 +64,12 @@ function Cards() {
 
   if (isLoading) {
     return <Loader />;
+  }
+
+  if (!cardsByCategoryId.length) {
+    return (
+      <p className={styles.text}>There are no words in this category yet</p>
+    );
   }
 
   return (

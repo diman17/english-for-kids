@@ -20,6 +20,11 @@
 
 .text {
   color: var(--font-light);
+  cursor: default;
+}
+
+.active {
+  text-decoration: underline;
 }
 
 .button {

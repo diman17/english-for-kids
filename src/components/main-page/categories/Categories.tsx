@@ -21,6 +21,10 @@ function Categories() {
     return <Loader />;
   }
 
+  if (!categories.length) {
+    return <p className={styles.text}>No categories yet</p>;
+  }
+
   return (
     <ul className={styles.list}>
       {categories.map((category: CategoryType) => (

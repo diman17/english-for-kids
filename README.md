@@ -12,17 +12,17 @@
 
 ## About the project
 
-An application for learning English words with the ability to add categories and their corresponding words yourself  
+An application for learning English words with the ability to add categories and their corresponding words yourself
 
-The demo can be viewed at the link https://english-for-kids-diman17.netlify.app/  
+The demo can be viewed at the link https://english-for-kids-diman17.netlify.app/
 
-The server repo can be viewed at the link https://github.com/diman17/english-for-kids_server  
+The server repo can be viewed at the link https://github.com/diman17/english-for-kids_server
 
-Game page:  
+Game page:
 
-![main](https://user-images.githubusercontent.com/42317715/194769651-3f4225d3-4d17-47d0-9782-2fcb74c97c30.gif)  
+![main](https://user-images.githubusercontent.com/42317715/194769651-3f4225d3-4d17-47d0-9782-2fcb74c97c30.gif)
 
-Admin page:  
+Admin page:
 
 ![admin](https://user-images.githubusercontent.com/42317715/194769656-e684fe73-f223-4c75-b5fd-f44bb05d4479.gif)
 
@@ -43,12 +43,12 @@ Admin page:
 ### Prepare
 
 - Install [Node.js](https://nodejs.org/en/)
-- Fork this repository: https://github.com/diman17/english-for-kids_client/
-- Clone your newly created repo: `https://github.com/<%your_github_username%>/english-for-kids_client/`
+- Fork this repository: https://github.com/diman17/english-for-kids/
+- Clone your newly created repo: `https://github.com/<%your_github_username%>/english-for-kids/`
 
 ### Install
 
-- Go to folder `english-for-kids_client`
+- Go to folder `english-for-kids`
 - To install all dependencies use `npm install`
 
 ### Launch
